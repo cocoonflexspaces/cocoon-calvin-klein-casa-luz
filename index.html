@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROS — Calvin Klein × Casa Luz · Aug 11–12, 2026</title>
+<style>
+  :root {
+    --cream:       #F5F2E8;
+    --cream-deep:  #ECE7D6;
+    --cream-warm:  #EFE9D7;
+    --terracotta:  #F54029;
+    --teal:        #275453;
+    --ink:         #1A1A1A;
+    --ink-soft:    #4A4A4A;
+    --rule:        rgba(26,26,26,0.12);
+    --pending-bg:  #FFF7ED;
+    --pending-border: #F59E0B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--ink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .topbar-wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+  }
+  .topbar-sep {
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+    font-size: 16px;
+  }
+  .topbar-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.02em;
+  }
+  .topbar-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--terracotta);
+    color: white;
+    padding: 52px 40px 44px;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    opacity: 0.82;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .hero-address {
+    font-size: 13px;
+    opacity: 0.6;
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .hero-meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+  .hero-meta-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── IN-PROGRESS BANNER ── */
+  .progress-banner {
+    background: #FFFBEB;
+    border-bottom: 2px solid var(--pending-border);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #92400E;
+  }
+  .progress-banner .badge {
+    background: var(--pending-border);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 44px 40px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 52px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--terracotta);
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── CONTACTS GRID ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .contact-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid var(--rule);
+  }
+  .contact-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 6px;
+  }
+  .contact-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .contact-detail {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .contact-detail a {
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+
+  /* ── INFO GRID ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .info-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    border: 1px solid var(--rule);
+  }
+  .info-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 5px;
+  }
+  .info-card-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  /* ── COMM BANNER ── */
+  .comm-banner {
+    background: var(--teal);
+    color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .comm-banner strong {
+    font-weight: 700;
+  }
+
+  /* ── VENDOR BLOCKS ── */
+  .vendor-block {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .vendor-header {
+    background: var(--cream-deep);
+    padding: 11px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .vendor-name {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .vendor-note {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .vendor-body {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .vendor-body.single {
+    grid-template-columns: 1fr;
+  }
+  .vendor-body p {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .vendor-category h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .vendor-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 3px 0;
+    color: var(--ink);
+    gap: 8px;
+  }
+  .vendor-item-qty {
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .vendor-logistics {
+    padding: 10px 20px;
+    background: var(--cream);
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .vendor-logistics span strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── DAY BLOCK ── */
+  .day-block {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .day-header {
+    background: var(--ink);
+    color: white;
+    padding: 14px 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .day-header.tbd {
+    background: var(--ink-soft);
+  }
+  .day-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .day-hours {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 400;
+  }
+  .day-tbd-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+  }
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .schedule-table tr {
+    border-bottom: 1px solid var(--rule);
+  }
+  .schedule-table tr:last-child {
+    border-bottom: none;
+  }
+  .schedule-table tr:hover {
+    background: var(--cream);
+  }
+  .schedule-table td {
+    padding: 10px 20px;
+    vertical-align: top;
+    font-size: 13px;
+  }
+  .schedule-table td.time {
+    width: 140px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .schedule-table td.item {
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .schedule-table tr.highlight td.time {
+    color: var(--terracotta);
+    font-weight: 700;
+  }
+  .schedule-table tr.cm-row td.time {
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .schedule-table tr.cm-row td.item {
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .schedule-table tr.pending-row td {
+    background: var(--pending-bg);
+  }
+  .pending-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--pending-border);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+  }
+  .pending-text {
+    font-size: 13px;
+    color: #92400E;
+    line-height: 1.4;
+  }
+  .sub-items {
+    margin-top: 4px;
+    padding-left: 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    list-style: none;
+  }
+  .sub-items li::before {
+    content: "· ";
+    color: var(--terracotta);
+  }
+  .note-inline {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── NOTES GRID ── */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .notes-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .notes-card h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .notes-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .notes-card ul li {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.45;
+    padding-left: 14px;
+    position: relative;
+  }
+  .notes-card ul li::before {
+    content: "•";
+    color: var(--terracotta);
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .notes-card ul li span.muted {
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
+  /* ── RENTALS TABLE (Day 3) ── */
+  .rentals-note {
+    background: var(--pending-bg);
+    border: 1px solid var(--pending-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .rentals-note p {
+    font-size: 13px;
+    color: #78350F;
+    line-height: 1.55;
+  }
+  .rentals-note strong {
+    color: #92400E;
+  }
+
+  .rental-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.45);
+    padding: 22px 40px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer strong {
+    color: white;
+  }
+  .footer a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0 0 48px;
+  }
+
+  @media (max-width: 640px) {
+    .topbar { padding: 10px 20px; }
+    .hero { padding: 36px 20px 32px; }
+    .hero-title { font-size: 26px; }
+    .progress-banner { padding: 12px 20px; }
+    .main { padding: 28px 20px 60px; }
+    .notes-grid { grid-template-columns: 1fr; }
+    .footer { padding: 16px 20px; flex-direction: column; align-items: flex-start; }
+  }
+
+  @media print {
+    .topbar { position: static; }
+    .day-block, .vendor-block, .notes-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── TOP BAR ─── -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-wordmark">Cocoon</span>
+    <span class="topbar-sep">×</span>
+    <span class="topbar-title">Calvin Klein — Run of Show</span>
+  </div>
+  <span class="topbar-meta">Casa Luz · Aug 11–12, 2026</span>
+</div>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-eyebrow">Run of Show · Internal</div>
+  <div class="hero-title">Calvin Klein<br>Holiday Campaign Dinner</div>
+  <div class="hero-sub">Casa Luz · 2nd Floor</div>
+  <div class="hero-address">45 Howard Street, New York, NY 10013</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Load-In</span>
+      <span class="hero-meta-value">Tue, Aug 11, 2026</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Event Day</span>
+      <span class="hero-meta-value">Wed, Aug 12, 2026</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Client</span>
+      <span class="hero-meta-value">Calvin Klein / Matte Projects</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Venue Lead</span>
+      <span class="hero-meta-value">Eduard Monteagudo</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Casa Manager</span>
+      <span class="hero-meta-value">Leroi Richardson</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── IN-PROGRESS BANNER ─── -->
+<div class="progress-banner">
+  <span class="badge">In Progress</span>
+  This document is a working draft — some details may change as logistics are finalized. Last updated: Aug 10, 2026.
+</div>
+
+<!-- ─── MAIN ─── -->
+<div class="main">
+
+  <!-- CONTACTS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Contacts</span>
+      <span class="section-title">Key Contacts</span>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-role">Casa Manager — On Site</div>
+        <div class="contact-name">Leroi Richardson</div>
+        <div class="contact-detail">
+          <a href="tel:+13473208230">+1 (347) 320-8230</a><br>
+          <a href="mailto:leroi.richardson@gmail.com">leroi.richardson@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-role">Venue Ops — Cocoon</div>
+        <div class="contact-name">Eduard Monteagudo</div>
+        <div class="contact-detail">
+          <a href="tel:+19172147307">+1 (917) 214-7307</a><br>
+          <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-role">Client POC — On Site</div>
+        <div class="contact-name">Luke Berry</div>
+        <div class="contact-detail">
+          <a href="tel:+16109372873">+1 (610) 937-2873</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="comm-banner" style="margin-top:16px">
+      <strong>Day-of Communication:</strong> Leroi to coordinate directly with Luke Berry on site. Eduard available by phone for escalations. Sound / Spotify playlist — Eduard will add to Leroi's dashboard prior to Aug 11.
+    </div>
+  </div>
+
+  <!-- BUILDING ACCESS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Access</span>
+      <span class="section-title">Building Access &amp; Load-In</span>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-label">Venue Floor</div>
+        <div class="info-card-value">2nd Floor Only</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Passenger Elevator</div>
+        <div class="info-card-value">Howard Street entrance</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Staircase</div>
+        <div class="info-card-value">Broadway side</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Loading Dock</div>
+        <div class="info-card-value">None — no loading dock on site</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Exclusivity — Aug 12</div>
+        <div class="info-card-value">Full building exclusivity — no other parties</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">In-House Furniture</div>
+        <div class="info-card-value">Space will be cleared both days — no in-house pieces needed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENDOR & PRODUCTION -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Production</span>
+      <span class="section-title">Vendor &amp; Production Partners</span>
+    </div>
+
+    <!-- Matte Projects -->
+    <div class="vendor-block">
+      <div class="vendor-header">
+        <span class="vendor-name">Matte Projects</span>
+        <span class="vendor-note">Overall Production — Client's Agency</span>
+      </div>
+      <div class="vendor-body single">
+        <p>Lead production company managing the full event on behalf of Calvin Klein. Primary point of coordination for all vendor scheduling, creative execution, and day-of operations. Luke Berry is the on-site POC.</p>
+      </div>
+    </div>
+
+    <!-- Elegantize -->
+    <div class="vendor-block">
+      <div class="vendor-header">
+        <span class="vendor-name">Elegantize</span>
+        <span class="vendor-note">Scenic Design &amp; Installation</span>
+      </div>
+      <div class="vendor-body">
+        <div class="vendor-category">
+          <h4>Scope</h4>
+          <div class="vendor-item"><span>Scenic load-in</span></div>
+          <div class="vendor-item"><span>Drape installation</span></div>
+          <div class="vendor-item"><span>Painted backdrop</span></div>
+          <div class="vendor-item"><span>Lighting install &amp; programming</span></div>
+        </div>
+      </div>
+      <div class="vendor-logistics">
+        <span><strong>Day 1 (Aug 11):</strong> Load-in during venue window 2:00–10:00 PM</span>
+        <span><strong>Load-out:</strong> Aug 12 after 11:00 PM</span>
+      </div>
+    </div>
+
+    <!-- ACME -->
+    <div class="vendor-block">
+      <div class="vendor-header">
+        <span class="vendor-name">ACME</span>
+        <span class="vendor-note">Furniture &amp; Decor Rentals</span>
+      </div>
+      <div class="vendor-body">
+        <div class="vendor-category">
+          <h4>Welcome Lounge</h4>
+          <div class="vendor-item"><span>Siren Sofa</span><span class="vendor-item-qty">×1</span></div>
+          <div class="vendor-item"><span>Floor Lamp</span><span class="vendor-item-qty">×1</span></div>
+          <div class="vendor-item"><span>Truss Chairs</span><span class="vendor-item-qty">×2</span></div>
+          <div class="vendor-item"><span>Colletta Pedestal</span><span class="vendor-item-qty">×1</span></div>
+        </div>
+        <div class="vendor-category">
+          <h4>Dining Area</h4>
+          <div class="vendor-item"><span>Dining tables (various)</span></div>
+          <div class="vendor-item"><span>Sofas / lounge pieces</span></div>
+          <div class="vendor-item"><span>Pedestals</span></div>
+        </div>
+        <div class="vendor-category">
+          <h4>Ancillary</h4>
+          <div class="vendor-item"><span>TB172 (Bev Station)</span><span class="vendor-item-qty">×1</span></div>
+          <div class="vendor-item"><span>Auden Bench (Bathroom hallway)</span><span class="vendor-item-qty">×1</span></div>
+        </div>
+      </div>
+      <div class="vendor-logistics">
+        <span><strong>Delivery:</strong> Day 1, Aug 11 — within venue window</span>
+        <span><strong>Pickup:</strong> Day 3, Aug 13 (TBD — storage dependent)</span>
+      </div>
+    </div>
+
+    <!-- Other Rentals -->
+    <div class="vendor-block">
+      <div class="vendor-header">
+        <span class="vendor-name">Additional Rental Vendors</span>
+        <span class="vendor-note">Quixote · ICAT · Pottery Barn</span>
+      </div>
+      <div class="vendor-body">
+        <div class="vendor-category">
+          <h4>Furniture</h4>
+          <div class="vendor-item"><span>Reed Dining Chairs (Pottery Barn)</span><span class="vendor-item-qty">×12</span></div>
+        </div>
+        <div class="vendor-category">
+          <h4>Decor / Mirrors</h4>
+          <div class="vendor-item"><span>Large Mirror 82"×44" (Welcome)</span><span class="vendor-item-qty">×1</span></div>
+          <div class="vendor-item"><span>Hallway Mirror</span><span class="vendor-item-qty">×1</span></div>
+          <div class="vendor-item"><span>Bathroom Mirrors</span><span class="vendor-item-qty">×4</span></div>
+          <div class="vendor-item"><span>Entry Tables</span><span class="vendor-item-qty">×2</span></div>
+          <div class="vendor-item"><span>Entry Lamp + Extra Lounge Lamp</span></div>
+        </div>
+        <div class="vendor-category">
+          <h4>Equipment</h4>
+          <div class="vendor-item"><span>Quixote — production equipment</span></div>
+          <div class="vendor-item"><span>ICAT — additional rentals</span></div>
+        </div>
+      </div>
+      <div class="vendor-logistics">
+        <span><strong>Pickup:</strong> Day 3, Aug 13 (TBD — storage dependent)</span>
+      </div>
+    </div>
+
+    <!-- Culinary -->
+    <div class="vendor-block">
+      <div class="vendor-header">
+        <span class="vendor-name">Culinary / Catering Team</span>
+        <span class="vendor-note">BOH — coordinated by Matte Projects</span>
+      </div>
+      <div class="vendor-body single">
+        <p>Full kitchen back-of-house team. Load-in and prep begins Day 2 (Aug 12) from 2:00 PM. Dinner service 9:00–10:00 PM. Team coordinates independently; Leroi to facilitate any space or access needs.</p>
+      </div>
+      <div class="vendor-logistics">
+        <span><strong>Day 2 (Aug 12):</strong> BOH load-in from 2:00 PM</span>
+        <span><strong>Dinner:</strong> 9:00–10:00 PM</span>
+        <span><strong>Load-out:</strong> After 11:00 PM</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Day 1</span>
+      <span class="section-title">Tuesday, August 11 — Load-In Day</span>
+    </div>
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Tuesday, August 11, 2026</span>
+        <span class="day-hours">Venue Window: 2:00 PM – 10:00 PM (8 hrs)</span>
+      </div>
+      <table class="schedule-table">
+        <tr class="cm-row">
+          <td class="time">1:00 PM</td>
+          <td class="item">Leroi arrives — early access / space preparation</td>
+        </tr>
+        <tr>
+          <td class="time">2:00 PM</td>
+          <td class="item">Venue access opens — all vendors may enter
+            <div class="note-inline">Access via passenger elevator (Howard St) or Broadway staircase — no loading dock</div>
+          </td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">2:00–6:00 PM</td>
+          <td class="item">
+            Elegantize scenic load-in
+            <ul class="sub-items">
+              <li>Furniture deliveries received</li>
+              <li>Drape installation</li>
+              <li>Painted backdrop install</li>
+              <li>Lighting setup &amp; programming</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">Ongoing PM</td>
+          <td class="item">Mirror swaps + decor placement (client team)
+            <div class="note-inline">Bathroom mirrors installed by client; will be reset during Day 2 load-out</div>
+          </td>
+        </tr>
+        <tr class="pending-row">
+          <td class="time">Aug 11</td>
+          <td class="item">
+            <div class="pending-badge">TBD on the Day</div>
+            <div class="pending-text"><strong>Chandeliers (2nd floor):</strong> Client will decide on Aug 11 whether existing bulbs need to be replaced. Leroi to assist if bulb swap is needed.</div>
+          </td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">7:30–8:30 PM</td>
+          <td class="item">Client walkthrough — Matte Projects team reviews setup with venue</td>
+        </tr>
+        <tr>
+          <td class="time">8:30 PM</td>
+          <td class="item">Walkthrough complete — final adjustments</td>
+        </tr>
+        <tr>
+          <td class="time">10:00 PM</td>
+          <td class="item">EOD — all vendors out, venue secured</td>
+        </tr>
+        <tr class="cm-row">
+          <td class="time">10:15 PM</td>
+          <td class="item">Leroi departs</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Day 2</span>
+      <span class="section-title">Wednesday, August 12 — Event Day</span>
+    </div>
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Wednesday, August 12, 2026</span>
+        <span class="day-hours">Venue Window: 2:00 PM – 2:00 AM (11 hrs)</span>
+      </div>
+      <table class="schedule-table">
+        <tr class="cm-row">
+          <td class="time">1:45 PM</td>
+          <td class="item">Leroi arrives — space access / AM checks</td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">2:00 PM</td>
+          <td class="item">Venue access opens — culinary BOH load-in begins
+            <div class="note-inline">Kitchen team sets up; Leroi facilitates access and coordinates space as needed</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">2:00–5:00 PM</td>
+          <td class="item">BOH prep &amp; culinary setup; scenic touchups by Elegantize</td>
+        </tr>
+        <tr>
+          <td class="time">5:00–6:30 PM</td>
+          <td class="item">FOH staff lineup; final room styling &amp; adjustments</td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">6:30 PM</td>
+          <td class="item">Room ready — full setup complete</td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">6:30–7:30 PM</td>
+          <td class="item">
+            CK clean-room content capture
+            <div class="note-inline">No general guests — invited talent / CK team only. Controlled environment for photography/video.</div>
+          </td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">7:30 PM</td>
+          <td class="item">Guests arrive — event begins</td>
+        </tr>
+        <tr>
+          <td class="time">7:30–9:00 PM</td>
+          <td class="item">Event live — cocktail reception &amp; mingling</td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">9:00–10:00 PM</td>
+          <td class="item">Dinner service — seated dinner</td>
+        </tr>
+        <tr>
+          <td class="time">10:00–11:00 PM</td>
+          <td class="item">Post-dinner — event continues</td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">11:00 PM</td>
+          <td class="item">Event ends — guest departure begins; load-out commences</td>
+        </tr>
+        <tr>
+          <td class="time">11:00 PM – 1:00 AM</td>
+          <td class="item">Load-out in progress — scenic, culinary, rental teams
+            <div class="note-inline">Client bathroom mirrors reset during this window</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">~1:00 AM</td>
+          <td class="item">Estimated EOD — all vendors clear</td>
+        </tr>
+        <tr class="cm-row">
+          <td class="time">~3:00 AM</td>
+          <td class="item">Leroi departs</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Day 3</span>
+      <span class="section-title">Thursday, August 13 — Rental Pickup (TBD)</span>
+    </div>
+
+    <div class="rentals-note">
+      <p><strong>⏳ Day 3 is conditional</strong> — whether this access window is needed depends on where rental items can be stored after load-out on Aug 12. If storage is confirmed, Day 3 proceeds; Leroi will be on site to coordinate pickup. If items are removed during the Aug 12 load-out window, Day 3 is not needed. Details to be confirmed closer to the event.</p>
+    </div>
+
+    <div class="day-block">
+      <div class="day-header tbd">
+        <span class="day-label">Thursday, August 13, 2026</span>
+        <span class="day-tbd-note">Venue Window: 9:00 AM – 11:00 AM · If needed</span>
+      </div>
+      <table class="schedule-table">
+        <tr class="cm-row">
+          <td class="time">9:00 AM</td>
+          <td class="item">Leroi on site — access open for rental pickups</td>
+        </tr>
+        <tr class="pending-row">
+          <td class="time">9:00–11:00 AM</td>
+          <td class="item">
+            <div class="pending-badge">TBD</div>
+            <div class="pending-text">
+              Rental pickup window — Quixote, ACME, ICAT collect remaining items.<br>
+              Leroi coordinates vendor flow and confirms all items are accounted for.
+            </div>
+          </td>
+        </tr>
+        <tr class="highlight">
+          <td class="time">11:00 AM</td>
+          <td class="item">Venue fully cleared — all vendors out</td>
+        </tr>
+        <tr class="cm-row">
+          <td class="time">11:00 AM</td>
+          <td class="item">Leroi departs</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Rental items reference for Leroi -->
+    <div style="margin-top:16px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px">Reference — Items That May Require Storage / Day 3 Pickup</div>
+      <div class="rental-grid">
+        <div class="vendor-block">
+          <div class="vendor-header">
+            <span class="vendor-name">Welcome Lounge Area</span>
+          </div>
+          <div class="vendor-body">
+            <div class="vendor-category">
+              <div class="vendor-item"><span>Large Mirror 82"×44" (Wayfair)</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>Hallway Mirror</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>Bathroom Mirrors</span><span class="vendor-item-qty">×4</span></div>
+              <div class="vendor-item"><span>Entry Tables</span><span class="vendor-item-qty">×2</span></div>
+              <div class="vendor-item"><span>Entry Lamp</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>Extra Lounge Lamp</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>ACME Siren Sofa</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>ACME Floor Lamp</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>ACME Truss Chairs</span><span class="vendor-item-qty">×2</span></div>
+              <div class="vendor-item"><span>ACME Colletta Pedestal</span><span class="vendor-item-qty">×1</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="vendor-block">
+          <div class="vendor-header">
+            <span class="vendor-name">Dining + Ancillary</span>
+          </div>
+          <div class="vendor-body">
+            <div class="vendor-category">
+              <div class="vendor-item"><span>Reed Dining Chairs (PB)</span><span class="vendor-item-qty">×12</span></div>
+              <div class="vendor-item"><span>ACME Dining Tables</span></div>
+              <div class="vendor-item"><span>ACME Sofas / Lounge</span></div>
+              <div class="vendor-item"><span>ACME Pedestals</span></div>
+              <div class="vendor-item"><span>ACME TB172 (Bev Station)</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>ACME Auden Bench (Bathroom hallway)</span><span class="vendor-item-qty">×1</span></div>
+              <div class="vendor-item"><span>Quixote equipment</span></div>
+              <div class="vendor-item"><span>ICAT rentals</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRMED LOGISTICS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Logistics</span>
+      <span class="section-title">Confirmed Logistics</span>
+    </div>
+    <div class="notes-grid">
+      <div class="notes-card">
+        <h4>Space &amp; Setup</h4>
+        <ul>
+          <li>Space cleared on both days — no in-house furniture needed</li>
+          <li>Full building exclusivity on Aug 12 — no other parties in building</li>
+          <li>Lobby drape installation approved for Aug 11</li>
+          <li>Bathroom mirrors: client team installs; resets to original during load-out Aug 12</li>
+          <li>Chandeliers (2nd floor): client decides on Aug 11 whether existing bulbs need replacing — Leroi to assist if swap is required</li>
+        </ul>
+      </div>
+      <div class="notes-card">
+        <h4>Operations &amp; House Rules</h4>
+        <ul>
+          <li>Sound: Spotify playlist — Eduard adds to Leroi's dashboard before Aug 11</li>
+          <li>Candles: Approved — must be contained behind hurricane glass at all times</li>
+          <li>Drape in lobby: Approved for Day 1 (Aug 11) access window</li>
+          <li>No in-house catering or furniture required from Cocoon</li>
+          <li>All vendor access via Howard St elevator or Broadway staircase</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ─── FOOTER ─── -->
+<div class="footer">
+  <span>Cocoon Flex Spaces · Internal document — also shared with the property team · <strong>In Progress</strong></span>
+  <span><strong>Eduard Monteagudo</strong> · <a href="tel:+19172147307">917.214.7307</a> · <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a></span>
+</div>
+
+</body>
+</html>
