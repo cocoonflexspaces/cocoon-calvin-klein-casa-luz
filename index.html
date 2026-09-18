@@ -3,1085 +3,949 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROS — Calvin Klein × Casa Luz · Aug 11–12, 2026</title>
+<title>Casa Duende Wedding ROS</title>
 <style>
   :root {
-    --cream:       #F5F2E8;
-    --cream-deep:  #ECE7D6;
-    --cream-warm:  #EFE9D7;
-    --terracotta:  #F54029;
-    --teal:        #275453;
-    --ink:         #1A1A1A;
-    --ink-soft:    #4A4A4A;
-    --rule:        rgba(26,26,26,0.12);
-    --pending-bg:  #FFF7ED;
-    --pending-border: #F59E0B;
+    --cream:      #F5F2E8;
+    --cream-deep: #ECE7D6;
+    --cream-warm: #EFE9D7;
+    --terracotta: #F54029;
+    --teal:       #275453;
+    --ink:        #1A1A1A;
+    --ink-soft:   #4A4A4A;
+    --ink-mute:   #6B6B6B;
+    --rule:       rgba(26,26,26,0.12);
+    --rule-soft:  rgba(26,26,26,0.06);
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* ── TOP BAR ── */
-  .topbar {
-    background: var(--ink);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .topbar-wordmark {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: white;
-  }
-  .topbar-sep {
-    color: rgba(255,255,255,0.3);
-    font-weight: 300;
-    font-size: 16px;
-  }
-  .topbar-title {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.02em;
-  }
-  .topbar-meta {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--terracotta);
-    color: white;
-    padding: 52px 40px 44px;
-  }
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    opacity: 0.7;
-    margin-bottom: 12px;
-  }
-  .hero-title {
-    font-size: 34px;
-    font-weight: 700;
-    line-height: 1.12;
-    margin-bottom: 6px;
-  }
-  .hero-sub {
-    font-size: 17px;
-    opacity: 0.82;
-    font-weight: 400;
-    margin-bottom: 4px;
-  }
-  .hero-address {
-    font-size: 13px;
-    opacity: 0.6;
-    font-weight: 400;
-    margin-bottom: 32px;
-  }
-  .hero-meta {
-    display: flex;
-    gap: 36px;
-    flex-wrap: wrap;
-  }
-  .hero-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .hero-meta-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.55;
-  }
-  .hero-meta-value {
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  /* ── IN-PROGRESS BANNER ── */
-  .progress-banner {
-    background: #FFFBEB;
-    border-bottom: 2px solid var(--pending-border);
-    padding: 12px 40px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: #92400E;
-  }
-  .progress-banner .badge {
-    background: var(--pending-border);
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* ── LAYOUT ── */
-  .main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 44px 40px 80px;
-  }
-
-  /* ── SECTION ── */
-  .section {
-    margin-bottom: 52px;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--terracotta);
-  }
-  .section-eyebrow {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-  }
-  .section-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  /* ── CONTACTS GRID ── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
-  }
-  .contact-card {
-    background: white;
-    border-radius: 10px;
-    padding: 18px 20px;
-    border: 1px solid var(--rule);
-  }
-  .contact-role {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 6px;
-  }
-  .contact-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 10px;
-  }
-  .contact-detail {
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-  }
-  .contact-detail a {
-    color: var(--terracotta);
-    text-decoration: none;
-  }
-
-  /* ── INFO GRID ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 14px;
-  }
-  .info-card {
-    background: white;
-    border-radius: 8px;
-    padding: 14px 18px;
-    border: 1px solid var(--rule);
-  }
-  .info-card-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 5px;
-  }
-  .info-card-value {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.45;
-  }
-
-  /* ── COMM BANNER ── */
-  .comm-banner {
-    background: var(--teal);
-    color: white;
-    border-radius: 8px;
-    padding: 16px 20px;
-    font-size: 13px;
-    line-height: 1.6;
-    margin-top: 16px;
-  }
-  .comm-banner strong {
-    font-weight: 700;
-  }
-
-  /* ── VENDOR BLOCKS ── */
-  .vendor-block {
-    background: white;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-  .vendor-header {
     background: var(--cream-deep);
-    padding: 11px 20px;
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .vendor-name {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--ink);
-  }
-  .vendor-note {
-    font-size: 12px;
-    color: var(--ink-soft);
-  }
-  .vendor-body {
-    padding: 16px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-  }
-  .vendor-body.single {
-    grid-template-columns: 1fr;
-  }
-  .vendor-body p {
-    font-size: 13px;
-    color: var(--ink);
-    line-height: 1.55;
-  }
-  .vendor-category h4 {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 8px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .vendor-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    padding: 3px 0;
-    color: var(--ink);
-    gap: 8px;
-  }
-  .vendor-item-qty {
-    color: var(--ink-soft);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  .vendor-logistics {
-    padding: 10px 20px;
-    background: var(--cream);
-    border-top: 1px solid var(--rule);
-    font-size: 12px;
-    color: var(--ink-soft);
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .vendor-logistics span strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  /* ── DAY BLOCK ── */
-  .day-block {
-    background: white;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 24px;
-  }
-  .day-header {
-    background: var(--ink);
-    color: white;
-    padding: 14px 20px;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .day-header.tbd {
-    background: var(--ink-soft);
-  }
-  .day-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .day-hours {
-    font-size: 12px;
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-  }
-  .day-tbd-note {
-    font-size: 12px;
-    color: rgba(255,255,255,0.55);
-    font-style: italic;
-  }
-  .schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .schedule-table tr {
-    border-bottom: 1px solid var(--rule);
-  }
-  .schedule-table tr:last-child {
-    border-bottom: none;
-  }
-  .schedule-table tr:hover {
-    background: var(--cream);
-  }
-  .schedule-table td {
-    padding: 10px 20px;
-    vertical-align: top;
-    font-size: 13px;
-  }
-  .schedule-table td.time {
-    width: 140px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
-  .schedule-table td.item {
-    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11pt;
     line-height: 1.5;
+    padding-inline: 16px;
   }
-  .schedule-table tr.highlight td.time {
-    color: var(--terracotta);
-    font-weight: 700;
-  }
-  .schedule-table tr.cm-row td.time {
-    color: var(--teal);
-    font-weight: 700;
-  }
-  .schedule-table tr.cm-row td.item {
-    color: var(--teal);
-    font-weight: 500;
-  }
-  .schedule-table tr.pending-row td {
-    background: var(--pending-bg);
-  }
-  .pending-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: var(--pending-border);
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 4px;
-    margin-bottom: 3px;
-  }
-  .pending-text {
-    font-size: 13px;
-    color: #92400E;
-    line-height: 1.4;
-  }
-  .sub-items {
-    margin-top: 4px;
-    padding-left: 12px;
-    font-size: 12px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    list-style: none;
-  }
-  .sub-items li::before {
-    content: "· ";
-    color: var(--terracotta);
-  }
-  .note-inline {
-    font-size: 12px;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-top: 2px;
-  }
+  a { color: inherit; text-decoration: none; }
+  a.tel-link { border-bottom: 1px dotted currentColor; }
+  a.tel-link:hover { border-bottom-style: solid; }
 
-  /* ── NOTES GRID ── */
-  .notes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .page {
+    width: 1120px; max-width: 100%; min-height: 700px;
+    background: var(--cream);
+    margin: 0 auto 32px; box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    display: flex; flex-direction: column; overflow: hidden;
   }
-  .notes-card {
-    background: white;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 20px;
-  }
-  .notes-card h4 {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .notes-card ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .notes-card ul li {
-    font-size: 13px;
-    color: var(--ink);
-    line-height: 1.45;
-    padding-left: 14px;
-    position: relative;
-  }
-  .notes-card ul li::before {
-    content: "•";
-    color: var(--terracotta);
-    position: absolute;
-    left: 0;
-    font-size: 14px;
-    line-height: 1.3;
-  }
-  .notes-card ul li span.muted {
-    color: var(--ink-soft);
-    font-size: 12px;
-  }
-
-  /* ── RENTALS TABLE (Day 3) ── */
-  .rentals-note {
-    background: var(--pending-bg);
-    border: 1px solid var(--pending-border);
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin-bottom: 20px;
-  }
-  .rentals-note p {
-    font-size: 13px;
-    color: #78350F;
-    line-height: 1.55;
-  }
-  .rentals-note strong {
-    color: #92400E;
-  }
-
-  .rental-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 16px;
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.45);
-    padding: 22px 40px;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .footer strong {
-    color: white;
-  }
-  .footer a {
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-  }
-
-  /* ── DIVIDER ── */
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 0 0 48px;
-  }
-
-  @media (max-width: 640px) {
-    .topbar { padding: 10px 20px; }
-    .hero { padding: 36px 20px 32px; }
-    .hero-title { font-size: 26px; }
-    .progress-banner { padding: 12px 20px; }
-    .main { padding: 28px 20px 60px; }
-    .notes-grid { grid-template-columns: 1fr; }
-    .footer { padding: 16px 20px; flex-direction: column; align-items: flex-start; }
-  }
-
   @media print {
-    .topbar { position: static; }
-    .day-block, .vendor-block, .notes-card { break-inside: avoid; }
+    body { padding-inline: 0; background: var(--cream); }
+    .page { width: auto; margin: 0; box-shadow: none; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .screen-only { display: none !important; }
+  }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 36px; border-bottom: 1px solid var(--rule);
+    background: var(--cream); flex-shrink: 0; gap: 10px; flex-wrap: wrap;
+  }
+  .day-page .topbar { border-bottom: 2px solid var(--terracotta); }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .wordmark { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .wordmark .logomark { width: 15px; height: auto; color: var(--ink); flex-shrink: 0; display: block; }
+  .wordmark .word { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; color: var(--ink); text-transform: lowercase; }
+  .topbar-divider { width: 1px; height: 16px; background: var(--rule); flex: 0 0 auto; margin: 0 6px; }
+  .topbar-title { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar-meta { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-mute); white-space: nowrap; flex-shrink: 0; }
+
+  .jumpnav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--ink); color: var(--cream);
+    display: flex; gap: 6px; align-items: center;
+    padding: 9px 16px; overflow-x: auto; white-space: nowrap;
+    max-width: 1120px; margin: 16px auto 0; border-radius: 8px;
+  }
+  .jumpnav a {
+    flex-shrink: 0; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 7px 12px; border-radius: 100px; background: rgba(245,242,232,0.08); color: var(--cream);
+  }
+  .jumpnav a.today { background: var(--terracotta); color: #fff; }
+  .jumpnav a:hover { background: rgba(245,242,232,0.18); }
+
+  .btnrow { max-width: 1120px; margin: 16px auto 0; display: flex; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--ink); color: var(--cream); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; cursor: pointer; border: none; border-radius: 100px; font-family: inherit; }
+  .btn:hover { background: var(--terracotta); }
+
+  /* COVER */
+  .cover-grid { display: grid; grid-template-columns: 1fr 1fr; flex: 1; }
+  .cover-left { padding: 34px 38px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--rule); }
+  .cover-right { padding: 34px 38px; display: flex; flex-direction: column; gap: 16px; }
+  .superhead { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.20em; color: var(--terracotta); margin-bottom: 12px; }
+  .cover-title { font-size: 42px; font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; }
+  .cover-title span { color: var(--terracotta); }
+  .cover-subtitle { font-size: 12px; font-weight: 500; color: var(--ink-soft); margin-top: 12px; }
+  .cover-divider { width: 36px; height: 2px; background: var(--terracotta); margin: 18px 0; }
+  .stat-row { display: flex; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+  .stat-item .num { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--terracotta); line-height: 1; white-space: nowrap; }
+  .stat-item .lbl { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-mute); margin-top: 3px; }
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); }
+  .spec-item { padding: 9px 13px; border-bottom: 1px solid var(--rule-soft); }
+  .spec-item:nth-child(odd) { border-right: 1px solid var(--rule-soft); }
+  .spec-item.full { grid-column: 1 / 3; border-right: none; }
+  .spec-label { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-mute); margin-bottom: 3px; }
+  .spec-value { font-size: 11.5px; font-weight: 600; color: var(--ink); }
+  .features-head { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--terracotta); margin-bottom: 7px; padding-bottom: 4px; border-bottom: 1px solid rgba(245,64,41,0.15); }
+  .features-list { list-style: none; display: grid; gap: 4px; }
+  .features-list li { font-size: 9px; color: var(--ink-soft); padding-left: 12px; position: relative; line-height: 1.4; }
+  .features-list li::before { content: "·"; position: absolute; left: 0; color: var(--terracotta); font-weight: 700; font-size: 13px; line-height: 1; }
+  .cover-footer { border-top: 1px solid var(--rule); padding-top: 11px; margin-top: 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+  .cover-footer-note { font-size: 8px; color: var(--ink-mute); line-height: 1.6; }
+  .cover-footer-contact { font-size: 8px; color: var(--ink-soft); text-align: right; line-height: 1.6; }
+  .cover-footer-contact strong { color: var(--ink); font-weight: 600; }
+  .legend-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .legend-swatch.cocoon { background: var(--terracotta); }
+  .legend-swatch.couple { background: var(--teal); }
+
+  /* ITEMS */
+  .items-body { flex: 1; padding: 18px 36px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .glance-note { font-size: 9.5px; color: var(--ink-soft); line-height: 1.55; }
+  .glance-note strong { color: var(--ink); }
+  .items-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .items-col { display: flex; flex-direction: column; gap: 12px; }
+  .items-group-head { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); padding-bottom: 5px; border-bottom: 1px solid rgba(245,64,41,0.18); }
+  .item-row { display: flex; gap: 9px; padding: 7px 0; border-bottom: 1px solid var(--rule-soft); }
+  .item-row:last-child { border-bottom: none; }
+  .item-status { flex-shrink: 0; width: 66px; }
+  .pill { display: inline-block; font-size: 6.8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2.5px 6px; border-radius: 100px; white-space: nowrap; }
+  .pill.pending { background: rgba(245,64,41,0.12); color: var(--terracotta); }
+  .pill.progress { background: rgba(39,84,83,0.12); color: var(--teal); }
+  .pill.done { background: rgba(39,84,83,0.85); color: #fff; }
+  .item-text { font-size: 9px; color: var(--ink-soft); line-height: 1.45; }
+  .item-text strong { color: var(--ink); font-weight: 600; }
+  .flag-box { background: var(--cream-warm); border-left: 3px solid var(--terracotta); padding: 10px 14px; }
+  .flag-box .fb-head { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); margin-bottom: 6px; }
+  .flag-box .fb-text { font-size: 8.6px; color: var(--ink-soft); line-height: 1.5; }
+  .flag-box.teal { border-left-color: var(--teal); }
+  .flag-box.teal .fb-head { color: var(--teal); }
+
+  .ot-callout { background: var(--ink); color: var(--cream); padding: 12px 16px; margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .ot-callout .ot-head { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); margin-bottom: 4px; }
+  .ot-callout .ot-rate { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .ot-callout .ot-note { font-size: 8.2px; color: rgba(245,242,232,0.75); line-height: 1.5; margin-top: 3px; max-width: 480px; }
+
+  /* DAY / EVENT */
+  .day-page { display: flex; flex-direction: column; }
+  .day-header { display: flex; align-items: center; justify-content: space-between; padding: 13px 36px; background: var(--cream-warm); border-bottom: 1px solid var(--rule); flex-shrink: 0; gap: 10px; flex-wrap: wrap; }
+  .dh-left { display: flex; align-items: baseline; gap: 14px; }
+  .dh-badge { width: 34px; height: 34px; background: var(--terracotta); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 4px; }
+  .dh-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); line-height: 1.1; }
+  .dh-sub { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: var(--ink-mute); margin-top: 2px; }
+  .dh-right { text-align: right; }
+  .dh-access { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terracotta); margin-bottom: 2px; }
+  .dh-access-val { font-size: 11px; font-weight: 700; color: var(--ink); }
+  .day-body { flex: 1; padding: 12px 36px 10px; overflow-x: auto; }
+  .ros-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .ros-table thead th { text-align: left; font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: var(--ink-mute); padding: 5px 8px; border-bottom: 1px solid var(--rule); }
+  .ros-table tbody td { padding: 6px 8px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .ros-table tbody tr:last-child td { border-bottom: none; }
+  .rt-time { font-size: 8.6px; font-weight: 700; color: var(--ink); white-space: nowrap; width: 80px; }
+  .rt-track { width: 130px; }
+  .track-pill { display: inline-flex; align-items: center; justify-content: center; width: 112px; font-size: 6.6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 4px; border-radius: 100px; white-space: nowrap; text-align: center; }
+  .track-pill.cocoon { background: rgba(245,64,41,0.14); color: var(--terracotta); }
+  .track-pill.couple { background: rgba(39,84,83,0.14); color: var(--teal); }
+  .rt-item { font-size: 8.8px; color: var(--ink); line-height: 1.4; }
+  .rt-item .rt-note { display: block; color: var(--ink-mute); font-size: 7.9px; margin-top: 2px; }
+  .rt-item .flag { color: var(--terracotta); font-weight: 700; }
+  .rt-owner { font-size: 7.8px; color: var(--ink-soft); width: 150px; text-align: right; white-space: nowrap; }
+  .row-highlight td { background: rgba(245,64,41,0.05); }
+  .day-footnote { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 7.8px; color: var(--ink-mute); line-height: 1.55; }
+  .day-footnote strong { color: var(--terracotta); }
+
+  .plan-footer { padding: 8px 36px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--cream); flex-shrink: 0; gap: 8px; flex-wrap: wrap; }
+  .plan-footer-left, .plan-footer-right { font-size: 7.5px; color: var(--ink-mute); font-weight: 600; text-transform: uppercase; letter-spacing: 0.13em; }
+  .plan-footer-center { font-size: 7.5px; color: var(--terracotta); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; }
+
+  /* TEAM */
+  .team-body { flex: 1; padding: 18px 36px 20px; display: flex; flex-direction: column; gap: 14px; }
+  .team-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .team-col { display: flex; flex-direction: column; gap: 9px; }
+  .team-col-head { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); padding-bottom: 5px; border-bottom: 1px solid rgba(245,64,41,0.18); }
+  .person-row { padding: 6px 0; border-bottom: 1px solid var(--rule-soft); }
+  .person-row:last-child { border-bottom: none; }
+  .p-name-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .p-name { font-size: 9.5px; font-weight: 700; color: var(--ink); }
+  .p-phone { font-size: 8.3px; font-weight: 600; color: var(--terracotta); white-space: nowrap; }
+  .p-phone.tbd { color: var(--ink-mute); font-weight: 500; }
+  .p-role { font-size: 8px; color: var(--ink-mute); margin-top: 1px; }
+  .p-note { font-size: 7.9px; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
+  .p-note .flag { color: var(--terracotta); font-weight: 700; }
+  .vendor-row { padding: 6px 0; border-bottom: 1px solid var(--rule-soft); display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .vendor-row:last-child { border-bottom: none; }
+  .v-name { font-size: 8.8px; font-weight: 600; color: var(--ink); }
+  .v-role { font-size: 7.7px; color: var(--ink-mute); margin-top: 1px; }
+  .v-phone { font-size: 7.8px; font-weight: 600; color: var(--ink-soft); text-align: right; white-space: nowrap; flex-shrink: 0; }
+  .v-phone.tbd { color: var(--ink-mute); font-style: italic; font-weight: 400; }
+
+  @media screen and (max-width: 880px) {
+    body { font-size: 15px; padding-inline: 0; -webkit-text-size-adjust: 100%; }
+    .page { width: 100%; min-height: auto; margin: 0 0 14px; box-shadow: none; border-bottom: 10px solid var(--cream-deep); }
+    .jumpnav { border-radius: 0; margin: 0; gap: 8px; padding: 10px 14px; }
+    .jumpnav a { padding: 9px 14px; font-size: 12px; }
+    .btnrow { padding: 0 16px; margin: 16px auto 0; }
+    .btn { padding: 12px 22px; font-size: 12px; }
+    .topbar { padding: 12px 16px; }
+    .topbar-title { display: none; } .topbar-divider { display: none; }
+    .topbar-meta { font-size: 11px; }
+    .wordmark .word { font-size: 15px; }
+
+    /* COVER */
+    .cover-grid { grid-template-columns: 1fr; }
+    .cover-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 22px 18px; }
+    .cover-right { padding: 22px 18px; gap: 20px; }
+    .superhead { font-size: 11px; margin-bottom: 10px; }
+    .cover-title { font-size: 32px; }
+    .cover-subtitle { font-size: 14px; margin-top: 10px; }
+    .stat-row { gap: 20px 28px; }
+    .stat-item .num { font-size: 22px; }
+    .stat-item .lbl { font-size: 10px; margin-top: 4px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .spec-item:nth-child(odd) { border-right: none; }
+    .spec-item.full { grid-column: 1; }
+    .spec-item { padding: 11px 14px; }
+    .spec-label { font-size: 10px; margin-bottom: 4px; }
+    .spec-value { font-size: 14px; }
+    .features-head { font-size: 11px; margin-bottom: 9px; }
+    .features-list { gap: 8px; }
+    .features-list li { font-size: 13px; padding-left: 14px; line-height: 1.5; }
+    .cover-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cover-footer-note, .cover-footer-contact { font-size: 11px; text-align: left; }
+    .legend-row { gap: 16px; }
+    .legend-item { font-size: 11px; }
+    .legend-swatch { width: 12px; height: 12px; }
+
+    /* OPEN ITEMS */
+    .glance-note { font-size: 13px; }
+    .items-cols { grid-template-columns: 1fr; gap: 20px; }
+    .items-group-head { font-size: 11px; padding-bottom: 7px; }
+    .item-row { gap: 11px; padding: 10px 0; }
+    .item-status { width: auto; }
+    .pill { font-size: 10px; padding: 4px 9px; }
+    .item-text { font-size: 13.5px; line-height: 1.5; }
+    .flag-box { padding: 13px 16px; }
+    .flag-box .fb-head { font-size: 10.5px; margin-bottom: 8px; }
+    .flag-box .fb-text { font-size: 13px; line-height: 1.55; }
+
+    /* EVENT DAY */
+    .day-header { padding: 14px 16px; }
+    .dh-badge { width: 40px; height: 40px; font-size: 16px; }
+    .dh-title { font-size: 17px; }
+    .dh-sub { font-size: 11px; }
+    .dh-access { font-size: 10px; }
+    .dh-access-val { font-size: 13px; }
+    .day-body { padding: 10px 16px 14px; }
+    .ros-table, .ros-table tbody, .ros-table tr, .ros-table td { display: block; width: 100%; }
+    .ros-table thead { display: none; }
+    .ros-table tr { border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 9px; padding: 10px 12px; background: var(--cream); }
+    .ros-table td { padding: 2px 0; border-bottom: none; }
+    .rt-time { font-size: 14px; display: inline-block; margin-right: 8px; }
+    .rt-track { width: auto; display: inline-block; margin-bottom: 4px; }
+    .track-pill { width: auto; padding: 4px 10px; font-size: 10px; }
+    .rt-item { font-size: 13.5px; padding-top: 3px; }
+    .rt-item .rt-note { font-size: 12px; }
+    .rt-owner { width: auto; text-align: left; font-size: 12px; margin-top: 4px; color: var(--ink-mute); }
+    .rt-owner::before { content: "→ "; color: var(--terracotta); font-weight: 700; }
+    .day-footnote { font-size: 12px; line-height: 1.6; }
+    .ot-callout { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 16px; }
+    .ot-callout .ot-head { font-size: 10.5px; }
+    .ot-callout .ot-rate { font-size: 20px; }
+    .ot-callout .ot-note { font-size: 12px; max-width: none; }
+
+    /* TEAM */
+    .team-body { padding: 16px 16px 14px; }
+    .team-cols { grid-template-columns: 1fr; gap: 18px; }
+    .team-col-head { font-size: 11px; padding-bottom: 7px; }
+    .person-row, .vendor-row { padding: 9px 0; }
+    .p-name { font-size: 14.5px; }
+    .p-phone { font-size: 13.5px; }
+    .p-role { font-size: 12px; }
+    .p-note { font-size: 12px; }
+    .v-name { font-size: 13.5px; }
+    .v-role { font-size: 12px; }
+    .v-phone { font-size: 12px; }
+
+    /* FOOTERS */
+    .plan-footer { padding: 10px 16px; }
+    .plan-footer-left, .plan-footer-center, .plan-footer-right { font-size: 10px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ─── TOP BAR ─── -->
-<div class="topbar">
-  <div class="topbar-left">
-    <span class="topbar-wordmark">Cocoon</span>
-    <span class="topbar-sep">×</span>
-    <span class="topbar-title">Calvin Klein — Run of Show</span>
-  </div>
-  <span class="topbar-meta">Casa Luz · Aug 11–12, 2026</span>
+<div class="btnrow screen-only">
+  <button class="btn" onclick="window.print()">Print → PDF ↗</button>
 </div>
+<nav class="jumpnav screen-only">
+  <a href="#cover">Cover</a>
+  <a href="#open-items">Open Items</a>
+  <a href="#event-day" class="today">Sep 19 · Event</a>
+  <a href="#team">Contacts</a>
+</nav>
 
-<!-- ─── HERO ─── -->
-<div class="hero">
-  <div class="hero-eyebrow">Run of Show · Internal</div>
-  <div class="hero-title">Calvin Klein<br>Holiday Campaign Dinner</div>
-  <div class="hero-sub">Casa Luz · 2nd Floor</div>
-  <div class="hero-address">45 Howard Street, New York, NY 10013</div>
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Load-In</span>
-      <span class="hero-meta-value">Tue, Aug 11, 2026</span>
+<div class="page" id="cover">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="wordmark"><svg class="logomark" viewBox="0 0 573.1 610.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g><path d="M362.7,536.9c-5.9-23.7-13.1-53.1-19.2-77.6c-6.3-25.7-11.3-46-12-48.7c-1.7-7.1-3.4-14.2-9.6-13.1
+		c-6.2,1.1-5.3,8.4-4.4,15.7c0.3,2.7,2.8,23.3,5.8,49.6c2.9,25,6.4,55,9.1,79.3c2.3,19.6,4.1,35.6,4.8,42.1
+		c2.5,23.1,15.4,22.4,22.2,21.2s19.1-5.1,13.4-27.7C371.3,571.4,367.4,556,362.7,536.9z"/><path d="M402.2,523.7c-9.9-22.3-22.1-50-32.4-73.1c-10.8-24.3-19.3-43.6-20.4-46c-2.9-6.7-5.9-13.4-11.8-11.3
+		c-5.9,2.2-3.8,9.2-1.6,16.2c0.8,2.6,6.8,22.7,14.4,48.1c7.2,24.2,15.9,53.2,22.8,76.6c5.6,18.8,10.1,34,11.9,40.3
+		c6.5,22.3,19.1,19.4,25.6,17s18-8.4,8.4-29.5C416.5,555.9,410.1,541.5,402.2,523.7z"/><path d="M438.8,503.6c-13.6-20.3-30.5-45.4-44.6-66.3c-14.9-22.1-26.6-39.7-28.1-42c-4-6.1-8.1-12.2-13.5-9.1
+		c-5.4,3.2-2.1,9.7,1.2,16.2c1.2,2.4,10.7,21.2,22.6,45c11.3,22.6,24.9,49.6,35.8,71.5c8.7,17.5,15.8,31.6,18.6,37.4
+		c10.2,20.9,22.2,15.8,28.2,12.3s16.2-11.4,3.1-30.6C458.4,532.8,449.6,519.8,438.8,503.6z"/><path d="M471.2,477.5c-16.9-17.6-37.9-39.3-55.4-57.6c-18.6-19.3-33.2-34.6-35.1-36.6c-5.1-5.3-10.1-10.6-14.9-6.6
+		c-4.8,4-0.4,9.9,4,15.8c1.7,2.2,14.2,19.1,30.2,40.6c15.1,20.3,33.1,44.6,47.6,64.2c11.6,15.6,20.9,28.3,24.8,33.5
+		c13.7,18.7,24.6,11.7,29.9,7.3c5.3-4.5,14-14-2.2-30.6C495.6,502.8,484.7,491.5,471.2,477.5z"/><path d="M532.3,470.5c-5.2-3.8-17.8-12.9-33.4-24.3c-19.7-14.3-44.2-32.2-64.6-47.1c-21.7-15.9-38.9-28.4-41-30
+		c-5.9-4.4-11.8-8.7-15.8-3.9s1.3,9.8,6.7,14.8c2,1.8,17.4,16.4,36.9,34.8c18.4,17.4,40.3,38.1,58,54.9
+		c14.1,13.3,25.4,24.1,30.1,28.6c16.8,16.1,26.2,7.3,30.7,2C544.2,495,551.1,484.1,532.3,470.5z"/><path d="M557.5,428.6c-5.8-2.8-19.7-9.6-37-18c-21.9-10.7-49-24-71.8-35.2c-24.2-11.9-43.3-21.3-45.8-22.5
+		c-6.6-3.3-13.1-6.5-16.3-1.1s3,9.5,9.2,13.5c2.3,1.5,20.1,13.2,42.5,28c21.1,13.9,46.4,30.6,66.7,44c16.1,10.6,29,19.2,34.4,22.8
+		c19.3,12.9,27.1,2.6,30.6-3.4C573.5,450.6,578.4,438.7,557.5,428.6z"/><path d="M25.1,324.5c6.7-0.5,23.4-1.7,43.8-3.1c24.6-1.7,54.8-3.7,79.6-5.4c25.6-1.7,45.6-3.1,48.2-3.2c7.3-0.5,14.6-0.9,14.6-7.2
+		s-7.4-6.7-14.7-7.1c-2.6-0.1-22.7-1.3-48.3-2.8c-24.9-1.5-55-3.3-79.7-4.7c-20.4-1.2-37.1-2.3-43.8-2.7
+		C1.6,286.8,0,299.6,0.1,306.5C0.2,313.4,1.9,326.2,25.1,324.5z"/><path d="M33.7,372.8c6.4-1.6,22.1-5.6,41.5-10.3c23.8-5.9,53.2-13.2,77.6-19.2c25.4-6.3,45.4-11.2,48-11.8
+		c7.1-1.7,14.2-3.4,13.1-9.6c-1.1-6.2-8.4-5.3-15.7-4.4c-2.7,0.3-23.1,2.7-49.1,5.7c-24.9,2.9-54.9,6.3-79.3,9.1
+		c-19.8,2.3-36,4.1-42.5,4.8c-23.1,2.5-22.4,15.4-21.2,22.2C7.3,366.2,11.2,378.5,33.7,372.8z"/><path d="M88.6,401.7c22.5-10,50.1-22.2,73.1-32.4c23.9-10.6,42.8-18.9,45.3-20c6.7-2.9,13.4-5.9,11.3-11.8
+		c-2.2-5.9-9.2-3.8-16.2-1.6c-2.6,0.8-22.3,6.7-47.4,14.2c-24.1,7.2-53.1,15.8-76.6,22.8c-19.1,5.7-34.6,10.3-41,12.1
+		c-22.3,6.5-19.4,19.1-17,25.6s8.4,18,29.5,8.4C55.6,416.3,70.4,409.8,88.6,401.7z"/><path d="M108.7,438c20.4-13.7,45.5-30.6,66.3-44.6c21.7-14.6,38.9-26.1,41.1-27.5c6.1-4,12.2-8.1,9.1-13.5
+		c-3.2-5.4-9.7-2.1-16.2,1.2c-2.4,1.2-20.8,10.5-44.2,22.2c-22.5,11.3-49.5,24.8-71.5,35.8c-17.8,8.9-32.3,16.1-38.2,19
+		c-20.9,10.2-15.8,22.2-12.3,28.2s11.4,16.2,30.6,3.1C78.8,458.2,92.2,449.1,108.7,438z"/><path d="M134.8,470.3c17.7-17,39.5-38,57.6-55.4c18.9-18.2,33.8-32.4,35.7-34.3c5.3-5.1,10.6-10.1,6.6-14.9c-4-4.8-9.9-0.4-15.8,4
+		c-2.2,1.6-18.7,13.9-39.7,29.5c-20.2,15-44.5,33-64.2,47.6c-16,11.9-29,21.5-34.3,25.4C62,485.9,69,496.8,73.4,502.1
+		c4.5,5.3,14,14,30.6-2.2C108.8,495.4,120.4,484.1,134.8,470.3z"/><path d="M294.9,413.2c0.8-7.3,1.7-14.6-4.5-15.6c-6.2-1.1-7.9,6.1-9.5,13.2c-0.6,2.6-5.4,22.8-11.5,48.4
+		c-5.8,24.5-12.8,53.9-18.5,77.7c-4.6,19.3-8.4,34.9-9.9,41.3c-5.5,22.6,6.8,26.4,13.6,27.5c6.8,1.2,19.8,1.7,22.1-21.4
+		c0.6-6.5,2.3-22.5,4.5-42.2c2.6-24.4,5.8-54.4,8.5-79.4C292.4,436.5,294.6,415.9,294.9,413.2z"/><path d="M213.2,433.1c15.5-21.2,27.7-37.9,29.3-40c4.4-5.9,8.7-11.8,3.9-15.8s-9.8,1.3-14.8,6.7c-1.8,2-16,17-34,36
+		c-17.2,18.2-38,40.2-54.9,58c-13.7,14.5-24.8,26.2-29.4,31c-16.1,16.8-7.3,26.2-2,30.7c5.3,4.4,16.2,11.3,29.8-7.5
+		c3.9-5.3,13.3-18.4,25-34.5C180.5,477.8,198.3,453.4,213.2,433.1z"/><path d="M236.7,447.4c11.6-23.6,20.7-42.2,21.9-44.6c3.3-6.6,6.5-13.1,1.1-16.3c-5.5-3.1-9.5,3-13.5,9.2
+		c-1.5,2.3-12.8,19.5-27.2,41.4c-13.8,21-30.5,46.3-44,66.7c-10.9,16.6-19.9,30-23.5,35.5c-12.9,19.3-2.6,27.1,3.4,30.6
+		c6,3.4,18,8.4,28-12.5c2.8-5.9,9.9-20.4,18.6-38.2C212.3,497.2,225.6,470,236.7,447.4z"/><path d="M262.5,457.4c7.3-25.3,13.1-45.2,13.9-47.8c2.1-7,4.1-14.1-1.7-16.2c-5.9-2.1-8.8,4.6-11.7,11.3
+		c-1.1,2.5-9.2,21.5-19.7,45.6c-10,23.1-22,50.9-31.8,73.4c-7.9,18.2-14.3,32.9-17,38.9c-9.4,21.3,2.2,27.2,8.6,29.5
+		c6.5,2.3,19.2,5.1,25.5-17.2c1.8-6.3,6.2-21.7,11.7-40.8C247.1,510.6,255.5,481.6,262.5,457.4z"/><path d="M313.9,413.5c-0.5-7.3-0.9-14.6-7.2-14.6s-6.7,7.4-7.1,14.7c-0.1,2.7-1.3,23.4-2.9,49.7c-1.5,25.1-3.3,55.3-4.7,79.8
+		c-1.2,19.8-2.2,35.8-2.6,42.4c-1.5,23.2,11.3,24.8,18.2,24.8s19.7-1.7,18-24.9c-0.5-6.6-1.6-22.6-2.9-42.3
+		c-1.7-24.4-3.7-54.6-5.4-79.7C315.4,437,314.1,416.2,313.9,413.5z"/><path d="M247.9,74.1c5.9,23.8,13.2,53.2,19.2,77.6c6.3,25.4,11.2,45.4,11.8,48c1.7,7.1,3.4,14.2,9.6,13.1c6.2-1.1,5.3-8.4,4.4-15.7
+		c-0.3-2.7-2.7-23.2-5.7-49.3c-2.9-25-6.3-55-9.1-79.3c-2.3-19.8-4.1-35.8-4.8-42.4C270.8,3,257.9,3.7,251.1,4.9
+		c-6.8,1.2-19.2,5.2-13.4,27.7C239.2,39,243.1,54.8,247.9,74.1z"/><path d="M208.7,87.8c10,22.5,22.2,50.2,32.4,73.1c10.6,23.8,18.8,42.5,19.9,45c2.9,6.7,5.9,13.4,11.8,11.3
+		c5.9-2.2,3.8-9.2,1.6-16.2c-0.8-2.6-6.7-22.2-14.2-47.3c-7.2-24-15.8-53.1-22.8-76.6c-5.7-19.2-10.3-34.7-12.1-41
+		c-6.5-22.3-19.1-19.4-25.6-17s-18,8.4-8.4,29.5C194,54.6,200.6,69.5,208.7,87.8z"/><path d="M172.6,108.1c13.7,20.4,30.6,45.6,44.6,66.4c14.5,21.5,25.8,38.5,27.2,40.7c4,6.1,8.1,12.2,13.5,9.1
+		c5.4-3.2,2.1-9.7-1.2-16.2c-1.2-2.4-10.4-20.6-22.1-43.9c-11.3-22.4-24.8-49.5-35.8-71.5c-9-18-16.3-32.5-19.2-38.5
+		c-10.2-20.9-22.2-15.8-28.2-12.3s-16.2,11.4-3.1,30.6C152.2,77.7,161.4,91.3,172.6,108.1z"/><path d="M140.6,134.3c17.1,17.8,38.1,39.6,55.4,57.6c17.9,18.6,31.9,33.2,33.7,35.2c5.1,5.3,10.1,10.6,14.9,6.6s0.4-9.9-4-15.8
+		c-1.6-2.1-13.7-18.4-29.2-39.2c-15-20.1-33-44.3-47.7-64.1c-12-16.2-21.8-29.5-25.7-34.8c-13.7-18.7-24.6-11.7-29.9-7.3
+		c-5.3,4.5-14,14,2.2,30.6C115.1,107.8,126.5,119.7,140.6,134.3z"/><path d="M78.2,139.9c5.4,3.9,18.8,13.6,35.3,25.6c19.9,14.5,44.4,32.3,64.6,47.1c20.8,15.2,37.1,27.1,39.2,28.7
+		c5.9,4.4,11.8,8.7,15.8,3.9s-1.3-9.8-6.7-14.8c-1.9-1.8-16.6-15.7-35.4-33.4c-18.1-17.2-40.1-38-58-54.9
+		c-14.7-14-26.7-25.3-31.6-30c-16.8-16.1-26.2-7.3-30.7-2C66.3,115.4,59.4,126.3,78.2,139.9z"/><path d="M53,181.8c6.1,2.9,21,10.2,39.2,19.2c22.2,10.8,49.3,24.2,71.8,35.2c23.1,11.3,41.2,20.2,43.5,21.4
+		c6.6,3.3,13.1,6.5,16.3,1.1c3.1-5.5-3-9.5-9.2-13.5c-2.2-1.4-19.1-12.5-40.6-26.7c-20.9-13.7-46.1-30.4-66.7-44
+		c-17-11.2-30.8-20.4-36.3-24.1c-19.3-12.9-27.1-2.6-30.6,3.4C37,159.8,32.1,171.7,53,181.8z"/><path d="M35.4,227.5c6.5,1.8,22.5,6.4,42.1,12.1c23.8,6.8,52.8,15.3,76.8,22.1c24.7,7.1,44,12.7,46.5,13.5c7,2.1,14.1,4.1,16.2-1.7
+		c2.1-5.9-4.6-8.8-11.3-11.7c-2.4-1-20.9-9-44.5-19.2c-22.9-9.9-50.7-21.9-73.4-31.8c-18.7-8.1-33.9-14.7-40.1-17.4
+		c-21.3-9.4-27.2,2.2-29.5,8.6S13,221.2,35.4,227.5z"/><path d="M26,275.5c6.7,0.7,23.3,2.4,43.7,4.6c24.6,2.6,54.6,5.8,79.4,8.5c25.5,2.8,45.5,4.9,48.1,5.2c7.3,0.8,14.6,1.7,15.6-4.5
+		c1.1-6.2-6.1-7.9-13.2-9.5c-2.6-0.6-22.1-5.2-47.1-11.2c-24.3-5.8-53.7-12.8-77.7-18.5c-19.8-4.7-36.1-8.6-42.6-10.2
+		c-22.6-5.5-26.4,6.8-27.5,13.6C3.4,260.3,2.9,273.2,26,275.5z"/><path d="M504.3,171.9c-20.3,13.6-45.4,30.6-66.3,44.6c-22,14.7-39.3,26.3-41.5,27.8c-6.1,4-12.2,8.1-9.1,13.5
+		c3.2,5.4,9.7,2.1,16.2-1.2c2.4-1.2,21-10.6,44.7-22.5c22.6-11.3,49.6-24.9,71.5-35.8c17.6-8.8,31.8-15.9,37.7-18.8
+		c20.9-10.2,15.8-22.2,12.3-28.2s-11.4-16.2-30.6-3.1C533.9,152,520.6,160.9,504.3,171.9z"/><path d="M478,139.6c-17.6,17-39.4,38-57.6,55.4c-19,18.3-34,32.7-36,34.6c-5.3,5.1-10.6,10.1-6.6,14.9c4,4.8,9.9,0.4,15.8-4
+		c2.2-1.6,18.9-14.1,40.1-29.8c20.2-15,44.5-33.1,64.2-47.6c15.9-11.7,28.7-21.2,34-25.1c18.7-13.7,11.7-24.6,7.3-29.9
+		c-4.5-5.3-14-14-30.6,2.2C503.8,114.8,492.3,125.9,478,139.6z"/><path d="M322.2,212.6c6.2,1.1,7.9-6.1,9.5-13.2c0.6-2.6,5.4-22.8,11.5-48.4c5.8-24.4,12.8-53.9,18.5-77.7
+		c4.6-19.3,8.4-34.9,9.9-41.3c5.5-22.6-6.8-26.4-13.6-27.5c-6.8-1.2-19.8-1.7-22.1,21.4c-0.6,6.6-2.3,22.6-4.5,42.3
+		c-2.6,24.4-5.8,54.4-8.5,79.4c-2.8,26.2-5.1,46.8-5.3,49.4C316.8,204.3,316,211.5,322.2,212.6z"/><path d="M399.6,176.9c-15.5,21.3-27.8,38.1-29.4,40.3c-4.4,5.9-8.7,11.8-3.9,15.8s9.8-1.3,14.8-6.7c1.8-2,16.1-17.1,34.2-36.3
+		c17.3-18.3,38.1-40.3,54.9-58c13.6-14.3,24.6-26,29.1-30.7c16.1-16.8,7.3-26.2,2-30.7c-5.3-4.4-16.2-11.3-29.8,7.5
+		c-3.8,5.3-13.2,18.3-24.9,34.2C432.3,132.1,414.5,156.6,399.6,176.9z"/><path d="M375.9,162.6c-11.6,23.7-20.8,42.3-22,44.7c-3.3,6.6-6.5,13.1-1.1,16.3c5.5,3.1,9.5-3,13.5-9.2
+		c1.5-2.3,12.9-19.6,27.4-41.6c13.9-21,30.5-46.3,44-66.8c10.9-16.5,19.7-29.8,23.3-35.3c12.9-19.3,2.6-27.1-3.4-30.6
+		c-6-3.4-18-8.4-28,12.5c-2.8,5.9-9.9,20.3-18.6,38C400.3,112.9,387,140,375.9,162.6z"/><path d="M350.1,152.8c-7.3,25.3-13.1,45.3-13.9,47.8c-2.1,7-4.1,14.1,1.7,16.2c5.9,2.1,8.8-4.6,11.7-11.3
+		c1.1-2.5,9.3-21.5,19.8-45.8c10-23.1,22-50.9,31.8-73.4c7.9-18.1,14.2-32.8,16.9-38.8c9.4-21.3-2.2-27.2-8.6-29.5
+		c-6.5-2.3-19.2-5.1-25.5,17.3c-1.8,6.3-6.2,21.7-11.7,40.8C365.5,99.6,357.1,128.6,350.1,152.8z"/><path d="M305.1,211.3c6.3,0,6.7-7.4,7.1-14.7c0.1-2.7,1.3-23.4,2.9-49.7c1.5-25.1,3.3-55.3,4.7-79.8c1.2-19.8,2.2-35.8,2.6-42.4
+		C323.9,1.5,311.1-0.1,304.2,0c-6.9,0-19.7,1.7-18,24.9c0.5,6.6,1.6,22.7,3,42.5c1.7,24.4,3.7,54.6,5.4,79.7
+		c1.8,26.3,3.2,47,3.3,49.6C298.4,204,298.8,211.3,305.1,211.3z"/><path d="M290.5,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S287.4,229.1,290.5,229.1z"/><path d="M320,392.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S316.9,392.3,320,392.3z"/><path d="M276.5,232.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C270.9,230.4,273.4,232.9,276.5,232.9z"
+		/><path d="M333.9,388.5c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S330.8,388.5,333.9,388.5z"/><path d="M263.4,239.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C257.8,236.6,260.3,239.1,263.4,239.1z"
+		/><path d="M347,382.4c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S343.8,382.4,347,382.4z"/><path d="M251.6,247.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C246,244.9,248.5,247.5,251.6,247.5z"/><path d="M358.7,374.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C353.1,371.5,355.6,374.1,358.7,374.1z"
+		/><path d="M241.4,257.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C235.8,255.2,238.3,257.8,241.4,257.8z"
+		/><path d="M368.9,363.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.3,361.3,365.8,363.8,368.9,363.8z"
+		/><path d="M233.1,269.6c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S230,269.6,233.1,269.6z"/><path d="M377.1,352c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C371.5,349.4,374,352,377.1,352z"/><path d="M227.1,282.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C221.4,280.2,224,282.8,227.1,282.8z"/><path d="M223.4,296.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C217.7,294.2,220.3,296.8,223.4,296.8z"
+		/><path d="M222.2,311.2c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S219.1,311.2,222.2,311.2z"/><path d="M224.6,325.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S221.5,325.5,224.6,325.5z"/><path d="M228.4,339.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S225.2,339.5,228.4,339.5z"/><path d="M234.6,352.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C228.9,350,231.4,352.6,234.6,352.6z"/><path d="M377.8,269.1c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S374.7,269.1,377.8,269.1z"/><path d="M242.9,364.4c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C237.3,361.9,239.8,364.4,242.9,364.4z"
+		/><path d="M369.5,257.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.9,254.7,366.4,257.3,369.5,257.3z"
+		/><path d="M253.2,374.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C247.5,372.1,250.1,374.6,253.2,374.6z"
+		/><path d="M359.3,247.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S356.1,247.1,359.3,247.1z"/><path d="M265.1,382.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S262,382.8,265.1,382.8z"/><path d="M347.4,238.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7C341.7,236.3,344.2,238.9,347.4,238.9z"/><path d="M278.2,388.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C272.6,386.4,275.1,388.9,278.2,388.9z"
+		/><path d="M334.3,232.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S331.2,232.8,334.3,232.8z"/><path d="M292.2,392.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C286.6,390,289.1,392.6,292.2,392.6z"/><path d="M320.3,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C314.7,226.6,317.2,229.1,320.3,229.1z"
+		/><path d="M306.3,393.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C300.6,391.2,303.2,393.8,306.3,393.8z"
+		/><path d="M305.4,227.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C299.8,225.4,302.3,227.9,305.4,227.9z"
+		/></g></svg><span class="word">cocoon</span></div>
+      <div class="topbar-divider"></div>
+      <div class="topbar-title">Casa Duende · 170 Eldridge Street, New York, NY 10002</div>
     </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Event Day</span>
-      <span class="hero-meta-value">Wed, Aug 12, 2026</span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Client</span>
-      <span class="hero-meta-value">Calvin Klein / Matte Projects</span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Venue Lead</span>
-      <span class="hero-meta-value">Eduard Monteagudo</span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Casa Manager</span>
-      <span class="hero-meta-value">Leroi Richardson</span>
-    </div>
-  </div>
-</div>
-
-<!-- ─── IN-PROGRESS BANNER ─── -->
-<div class="progress-banner">
-  <span class="badge">In Progress</span>
-  This document is a working draft — some details may change as logistics are finalized. Last updated: Aug 10, 2026.
-</div>
-
-<!-- ─── MAIN ─── -->
-<div class="main">
-
-  <!-- CONTACTS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Contacts</span>
-      <span class="section-title">Key Contacts</span>
-    </div>
-    <div class="contact-grid">
-
-      <div class="contact-card">
-        <div class="contact-role">Casa Manager — On Site</div>
-        <div class="contact-name">Leroi Richardson</div>
-        <div class="contact-detail">
-          <a href="tel:+13473208230">+1 (347) 320-8230</a><br>
-          <a href="mailto:leroi.richardson@gmail.com">leroi.richardson@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-role">Venue Ops — Cocoon</div>
-        <div class="contact-name">Eduard Monteagudo</div>
-        <div class="contact-detail">
-          <a href="tel:+19172147307">+1 (917) 214-7307</a><br>
-          <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-role">Client POC — On Site</div>
-        <div class="contact-name">Luke Berry</div>
-        <div class="contact-detail">
-          <a href="tel:+16109372873">+1 (610) 937-2873</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="comm-banner" style="margin-top:16px">
-      <strong>Day-of Communication:</strong> Leroi to coordinate directly with Luke Berry on site. Eduard available by phone for escalations. Sound / Spotify playlist — Eduard will add to Leroi's dashboard prior to Aug 11.
-    </div>
-  </div>
-
-  <!-- BUILDING ACCESS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Access</span>
-      <span class="section-title">Building Access &amp; Load-In</span>
-    </div>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-label">Venue Floor</div>
-        <div class="info-card-value">2nd Floor Only</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Passenger Elevator</div>
-        <div class="info-card-value">Howard Street entrance</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Staircase</div>
-        <div class="info-card-value">Broadway side</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Loading Dock</div>
-        <div class="info-card-value">None — no loading dock on site</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Exclusivity — Aug 12</div>
-        <div class="info-card-value">Full building exclusivity — no other parties</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">In-House Furniture</div>
-        <div class="info-card-value">Space will be cleared both days — no in-house pieces needed</div>
-      </div>
-    </div>
+    <div class="topbar-meta">Run of Show</div>
   </div>
 
-  <!-- VENDOR & PRODUCTION -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Production</span>
-      <span class="section-title">Vendor &amp; Production Partners</span>
-    </div>
-
-    <!-- Matte Projects -->
-    <div class="vendor-block">
-      <div class="vendor-header">
-        <span class="vendor-name">Matte Projects</span>
-        <span class="vendor-note">Overall Production — Client's Agency</span>
-      </div>
-      <div class="vendor-body single">
-        <p>Lead production company managing the full event on behalf of Calvin Klein. Primary point of coordination for all vendor scheduling, creative execution, and day-of operations. Luke Berry is the on-site POC.</p>
-      </div>
-    </div>
-
-    <!-- Elegantize -->
-    <div class="vendor-block">
-      <div class="vendor-header">
-        <span class="vendor-name">Elegantize</span>
-        <span class="vendor-note">Scenic Design &amp; Installation</span>
-      </div>
-      <div class="vendor-body">
-        <div class="vendor-category">
-          <h4>Scope</h4>
-          <div class="vendor-item"><span>Scenic load-in</span></div>
-          <div class="vendor-item"><span>Drape installation</span></div>
-          <div class="vendor-item"><span>Painted backdrop</span></div>
-          <div class="vendor-item"><span>Lighting install &amp; programming</span></div>
+  <div class="cover-grid">
+    <div class="cover-left">
+      <div>
+        <div class="superhead">Private Event · Wedding Reception</div>
+        <div class="cover-title">Valenta&nbsp;/&nbsp;Peer<br>Wedding.<span> ROS.</span></div>
+        <div class="cover-subtitle">Casa Duende · 170 Eldridge Street, New York, NY 10002 (Lower East Side)</div>
+        <div class="cover-divider"></div>
+        <div class="stat-row">
+          <div class="stat-item"><div class="num">Sep 19</div><div class="lbl">Wedding<br>Day</div></div>
+          <div class="stat-item"><div class="num">100</div><div class="lbl">Guest<br>Headcount</div></div>
+          <div class="stat-item"><div class="num">2:30p–1:30a</div><div class="lbl">Booking<br>Access Window</div></div>
+          <div class="stat-item"><div class="num">5:45 PM</div><div class="lbl">Ceremony<br>Start · Rooftop</div></div>
         </div>
       </div>
-      <div class="vendor-logistics">
-        <span><strong>Day 1 (Aug 11):</strong> Load-in during venue window 2:00–10:00 PM</span>
-        <span><strong>Load-out:</strong> Aug 12 after 11:00 PM</span>
-      </div>
-    </div>
 
-    <!-- ACME -->
-    <div class="vendor-block">
-      <div class="vendor-header">
-        <span class="vendor-name">ACME</span>
-        <span class="vendor-note">Furniture &amp; Decor Rentals</span>
-      </div>
-      <div class="vendor-body">
-        <div class="vendor-category">
-          <h4>Welcome Lounge</h4>
-          <div class="vendor-item"><span>Siren Sofa</span><span class="vendor-item-qty">×1</span></div>
-          <div class="vendor-item"><span>Floor Lamp</span><span class="vendor-item-qty">×1</span></div>
-          <div class="vendor-item"><span>Truss Chairs</span><span class="vendor-item-qty">×2</span></div>
-          <div class="vendor-item"><span>Colletta Pedestal</span><span class="vendor-item-qty">×1</span></div>
-        </div>
-        <div class="vendor-category">
-          <h4>Dining Area</h4>
-          <div class="vendor-item"><span>Dining tables (various)</span></div>
-          <div class="vendor-item"><span>Sofas / lounge pieces</span></div>
-          <div class="vendor-item"><span>Pedestals</span></div>
-        </div>
-        <div class="vendor-category">
-          <h4>Ancillary</h4>
-          <div class="vendor-item"><span>TB172 (Bev Station)</span><span class="vendor-item-qty">×1</span></div>
-          <div class="vendor-item"><span>Auden Bench (Bathroom hallway)</span><span class="vendor-item-qty">×1</span></div>
-        </div>
-      </div>
-      <div class="vendor-logistics">
-        <span><strong>Delivery:</strong> Day 1, Aug 11 — within venue window</span>
-        <span><strong>Pickup:</strong> Day 3, Aug 13 (TBD — storage dependent)</span>
-      </div>
-    </div>
-
-    <!-- Other Rentals -->
-    <div class="vendor-block">
-      <div class="vendor-header">
-        <span class="vendor-name">Additional Rental Vendors</span>
-        <span class="vendor-note">Quixote · ICAT · Pottery Barn</span>
-      </div>
-      <div class="vendor-body">
-        <div class="vendor-category">
-          <h4>Furniture</h4>
-          <div class="vendor-item"><span>Reed Dining Chairs (Pottery Barn)</span><span class="vendor-item-qty">×12</span></div>
-        </div>
-        <div class="vendor-category">
-          <h4>Decor / Mirrors</h4>
-          <div class="vendor-item"><span>Large Mirror 82"×44" (Welcome)</span><span class="vendor-item-qty">×1</span></div>
-          <div class="vendor-item"><span>Hallway Mirror</span><span class="vendor-item-qty">×1</span></div>
-          <div class="vendor-item"><span>Bathroom Mirrors</span><span class="vendor-item-qty">×4</span></div>
-          <div class="vendor-item"><span>Entry Tables</span><span class="vendor-item-qty">×2</span></div>
-          <div class="vendor-item"><span>Entry Lamp + Extra Lounge Lamp</span></div>
-        </div>
-        <div class="vendor-category">
-          <h4>Equipment</h4>
-          <div class="vendor-item"><span>Quixote — production equipment</span></div>
-          <div class="vendor-item"><span>ICAT — additional rentals</span></div>
-        </div>
-      </div>
-      <div class="vendor-logistics">
-        <span><strong>Pickup:</strong> Day 3, Aug 13 (TBD — storage dependent)</span>
-      </div>
-    </div>
-
-    <!-- Culinary -->
-    <div class="vendor-block">
-      <div class="vendor-header">
-        <span class="vendor-name">Culinary / Catering Team</span>
-        <span class="vendor-note">BOH — coordinated by Matte Projects</span>
-      </div>
-      <div class="vendor-body single">
-        <p>Full kitchen back-of-house team. Load-in and prep begins Day 2 (Aug 12) from 2:00 PM. Dinner service 9:00–10:00 PM. Team coordinates independently; Leroi to facilitate any space or access needs.</p>
-      </div>
-      <div class="vendor-logistics">
-        <span><strong>Day 2 (Aug 12):</strong> BOH load-in from 2:00 PM</span>
-        <span><strong>Dinner:</strong> 9:00–10:00 PM</span>
-        <span><strong>Load-out:</strong> After 11:00 PM</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- DAY 1 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Day 1</span>
-      <span class="section-title">Tuesday, August 11 — Load-In Day</span>
-    </div>
-    <div class="day-block">
-      <div class="day-header">
-        <span class="day-label">Tuesday, August 11, 2026</span>
-        <span class="day-hours">Venue Window: 2:00 PM – 10:00 PM (8 hrs)</span>
-      </div>
-      <table class="schedule-table">
-        <tr class="cm-row">
-          <td class="time">1:00 PM</td>
-          <td class="item">Leroi arrives — early access / space preparation</td>
-        </tr>
-        <tr>
-          <td class="time">2:00 PM</td>
-          <td class="item">Venue access opens — all vendors may enter
-            <div class="note-inline">Access via passenger elevator (Howard St) or Broadway staircase — no loading dock</div>
-          </td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">2:00–6:00 PM</td>
-          <td class="item">
-            Elegantize scenic load-in
-            <ul class="sub-items">
-              <li>Furniture deliveries received</li>
-              <li>Drape installation</li>
-              <li>Painted backdrop install</li>
-              <li>Lighting setup &amp; programming</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="time">Ongoing PM</td>
-          <td class="item">Mirror swaps + decor placement (client team)
-            <div class="note-inline">Bathroom mirrors installed by client; will be reset during Day 2 load-out</div>
-          </td>
-        </tr>
-        <tr class="pending-row">
-          <td class="time">Aug 11</td>
-          <td class="item">
-            <div class="pending-badge">TBD on the Day</div>
-            <div class="pending-text"><strong>Chandeliers (2nd floor):</strong> Client will decide on Aug 11 whether existing bulbs need to be replaced. Leroi to assist if bulb swap is needed.</div>
-          </td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">7:30–8:30 PM</td>
-          <td class="item">Client walkthrough — Matte Projects team reviews setup with venue</td>
-        </tr>
-        <tr>
-          <td class="time">8:30 PM</td>
-          <td class="item">Walkthrough complete — final adjustments</td>
-        </tr>
-        <tr>
-          <td class="time">10:00 PM</td>
-          <td class="item">EOD — all vendors out, venue secured</td>
-        </tr>
-        <tr class="cm-row">
-          <td class="time">10:15 PM</td>
-          <td class="item">Leroi departs</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- DAY 2 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Day 2</span>
-      <span class="section-title">Wednesday, August 12 — Event Day</span>
-    </div>
-    <div class="day-block">
-      <div class="day-header">
-        <span class="day-label">Wednesday, August 12, 2026</span>
-        <span class="day-hours">Venue Window: 2:00 PM – 2:00 AM (11 hrs)</span>
-      </div>
-      <table class="schedule-table">
-        <tr class="cm-row">
-          <td class="time">1:45 PM</td>
-          <td class="item">Leroi arrives — space access / AM checks</td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">2:00 PM</td>
-          <td class="item">Venue access opens — culinary BOH load-in begins
-            <div class="note-inline">Kitchen team sets up; Leroi facilitates access and coordinates space as needed</div>
-          </td>
-        </tr>
-        <tr>
-          <td class="time">2:00–5:00 PM</td>
-          <td class="item">BOH prep &amp; culinary setup; scenic touchups by Elegantize</td>
-        </tr>
-        <tr>
-          <td class="time">5:00–6:30 PM</td>
-          <td class="item">FOH staff lineup; final room styling &amp; adjustments</td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">6:30 PM</td>
-          <td class="item">Room ready — full setup complete</td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">6:30–7:30 PM</td>
-          <td class="item">
-            CK clean-room content capture
-            <div class="note-inline">No general guests — invited talent / CK team only. Controlled environment for photography/video.</div>
-          </td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">7:30 PM</td>
-          <td class="item">Guests arrive — event begins</td>
-        </tr>
-        <tr>
-          <td class="time">7:30–9:00 PM</td>
-          <td class="item">Event live — cocktail reception &amp; mingling</td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">9:00–10:00 PM</td>
-          <td class="item">Dinner service — seated dinner</td>
-        </tr>
-        <tr>
-          <td class="time">10:00–11:00 PM</td>
-          <td class="item">Post-dinner — event continues</td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">11:00 PM</td>
-          <td class="item">Event ends — guest departure begins; load-out commences</td>
-        </tr>
-        <tr>
-          <td class="time">11:00 PM – 1:00 AM</td>
-          <td class="item">Load-out in progress — scenic, culinary, rental teams
-            <div class="note-inline">Client bathroom mirrors reset during this window</div>
-          </td>
-        </tr>
-        <tr>
-          <td class="time">~1:00 AM</td>
-          <td class="item">Estimated EOD — all vendors clear</td>
-        </tr>
-        <tr class="cm-row">
-          <td class="time">~3:00 AM</td>
-          <td class="item">Leroi departs</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- DAY 3 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Day 3</span>
-      <span class="section-title">Thursday, August 13 — Rental Pickup (TBD)</span>
-    </div>
-
-    <div class="rentals-note">
-      <p><strong>⏳ Day 3 is conditional</strong> — whether this access window is needed depends on where rental items can be stored after load-out on Aug 12. If storage is confirmed, Day 3 proceeds; Leroi will be on site to coordinate pickup. If items are removed during the Aug 12 load-out window, Day 3 is not needed. Details to be confirmed closer to the event.</p>
-    </div>
-
-    <div class="day-block">
-      <div class="day-header tbd">
-        <span class="day-label">Thursday, August 13, 2026</span>
-        <span class="day-tbd-note">Venue Window: 9:00 AM – 11:00 AM · If needed</span>
-      </div>
-      <table class="schedule-table">
-        <tr class="cm-row">
-          <td class="time">9:00 AM</td>
-          <td class="item">Leroi on site — access open for rental pickups</td>
-        </tr>
-        <tr class="pending-row">
-          <td class="time">9:00–11:00 AM</td>
-          <td class="item">
-            <div class="pending-badge">TBD</div>
-            <div class="pending-text">
-              Rental pickup window — Quixote, ACME, ICAT collect remaining items.<br>
-              Leroi coordinates vendor flow and confirms all items are accounted for.
-            </div>
-          </td>
-        </tr>
-        <tr class="highlight">
-          <td class="time">11:00 AM</td>
-          <td class="item">Venue fully cleared — all vendors out</td>
-        </tr>
-        <tr class="cm-row">
-          <td class="time">11:00 AM</td>
-          <td class="item">Leroi departs</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Rental items reference for Leroi -->
-    <div style="margin-top:16px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px">Reference — Items That May Require Storage / Day 3 Pickup</div>
-      <div class="rental-grid">
-        <div class="vendor-block">
-          <div class="vendor-header">
-            <span class="vendor-name">Welcome Lounge Area</span>
+      <div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-label">Couple</div>
+            <div class="spec-value">Kyle Valenta &amp; Yaron Peer</div>
           </div>
-          <div class="vendor-body">
-            <div class="vendor-category">
-              <div class="vendor-item"><span>Large Mirror 82"×44" (Wayfair)</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>Hallway Mirror</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>Bathroom Mirrors</span><span class="vendor-item-qty">×4</span></div>
-              <div class="vendor-item"><span>Entry Tables</span><span class="vendor-item-qty">×2</span></div>
-              <div class="vendor-item"><span>Entry Lamp</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>Extra Lounge Lamp</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>ACME Siren Sofa</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>ACME Floor Lamp</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>ACME Truss Chairs</span><span class="vendor-item-qty">×2</span></div>
-              <div class="vendor-item"><span>ACME Colletta Pedestal</span><span class="vendor-item-qty">×1</span></div>
-            </div>
+          <div class="spec-item">
+            <div class="spec-label">Rental Category</div>
+            <div class="spec-value">Private Event — Wedding Reception</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Booking Times</div>
+            <div class="spec-value">2:30 PM – 1:30 AM</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Casa Manager On Site</div>
+            <div class="spec-value">1:30 PM – 2:30 AM</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Point of Contact</div>
+            <div class="spec-value">Kyle Valenta — 607-261-2761</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">COI &amp; Welcome Kit</div>
+            <div class="spec-value">Received &amp; approved Sept 17</div>
+          </div>
+          <div class="spec-item full">
+            <div class="spec-label">Live Event Window — September 19</div>
+            <div class="spec-value">Ceremony 5:45pm (rooftop) → reception &amp; dinner downstairs → speeches 9:00pm → guests depart ~11:00pm, load-out to follow (booking runs through 1:30am)</div>
           </div>
         </div>
-        <div class="vendor-block">
-          <div class="vendor-header">
-            <span class="vendor-name">Dining + Ancillary</span>
-          </div>
-          <div class="vendor-body">
-            <div class="vendor-category">
-              <div class="vendor-item"><span>Reed Dining Chairs (PB)</span><span class="vendor-item-qty">×12</span></div>
-              <div class="vendor-item"><span>ACME Dining Tables</span></div>
-              <div class="vendor-item"><span>ACME Sofas / Lounge</span></div>
-              <div class="vendor-item"><span>ACME Pedestals</span></div>
-              <div class="vendor-item"><span>ACME TB172 (Bev Station)</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>ACME Auden Bench (Bathroom hallway)</span><span class="vendor-item-qty">×1</span></div>
-              <div class="vendor-item"><span>Quixote equipment</span></div>
-              <div class="vendor-item"><span>ICAT rentals</span></div>
-            </div>
-          </div>
+        <div class="cover-footer">
+          <div class="cover-footer-note">Prepared by Cocoon Flex Spaces<br>info@cocoonflexspaces.com · <a class="tel-link" href="tel:+19173983938">+1 (917) 398-3938</a></div>
+          <div class="cover-footer-contact"><strong>cocoonflexspaces.com</strong><br>Draft V1 · Source: Tickets #53230 + #60116</div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CONFIRMED LOGISTICS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-eyebrow">Logistics</span>
-      <span class="section-title">Confirmed Logistics</span>
-    </div>
-    <div class="notes-grid">
-      <div class="notes-card">
-        <h4>Space &amp; Setup</h4>
-        <ul>
-          <li>Space cleared on both days — no in-house furniture needed</li>
-          <li>Full building exclusivity on Aug 12 — no other parties in building</li>
-          <li>Lobby drape installation approved for Aug 11</li>
-          <li>Bathroom mirrors: client team installs; resets to original during load-out Aug 12</li>
-          <li>Chandeliers (2nd floor): client decides on Aug 11 whether existing bulbs need replacing — Leroi to assist if swap is required</li>
+    <div class="cover-right">
+      <div>
+        <div class="features-head">How to read this document</div>
+        <ul class="features-list">
+          <li>The event-day timeline is built from the couple's planner's Run of Show (Scott Frost, sent Sept 17) plus Cocoon's own on-site coverage</li>
+          <li>Each schedule line is tagged by owner — Cocoon / Casa Manager, or the Couple's Planning Team</li>
+          <li>The Open Items page flags everything that still needs confirming before Saturday</li>
+          <li>No vendor invoices or client billing detail are included — the overtime rate on the Event Day page is the one figure kept in for on-site reference</li>
         </ul>
       </div>
-      <div class="notes-card">
-        <h4>Operations &amp; House Rules</h4>
-        <ul>
-          <li>Sound: Spotify playlist — Eduard adds to Leroi's dashboard before Aug 11</li>
-          <li>Candles: Approved — must be contained behind hurricane glass at all times</li>
-          <li>Drape in lobby: Approved for Day 1 (Aug 11) access window</li>
-          <li>No in-house catering or furniture required from Cocoon</li>
-          <li>All vendor access via Howard St elevator or Broadway staircase</li>
+      <div>
+        <div class="features-head">Legend</div>
+        <div class="legend-row" style="padding-top:2px;">
+          <div class="legend-item"><span class="legend-swatch cocoon"></span>Cocoon / Casa Manager</div>
+          <div class="legend-item"><span class="legend-swatch couple"></span>Couple's Planning Team</div>
+        </div>
+      </div>
+      <div>
+        <div class="features-head">Paperwork on file</div>
+        <ul class="features-list">
+          <li>COI (renter's + photographer's) — received &amp; approved (Sept 17)</li>
+          <li>Welcome Kit — signed &amp; received (Sept 17)</li>
         </ul>
       </div>
     </div>
   </div>
-
-</div><!-- /main -->
-
-<!-- ─── FOOTER ─── -->
-<div class="footer">
-  <span>Cocoon Flex Spaces · Internal document — also shared with the property team · <strong>In Progress</strong></span>
-  <span><strong>Eduard Monteagudo</strong> · <a href="tel:+19172147307">917.214.7307</a> · <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a></span>
 </div>
 
+<div class="page day-page" id="open-items">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="wordmark"><svg class="logomark" viewBox="0 0 573.1 610.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g><path d="M362.7,536.9c-5.9-23.7-13.1-53.1-19.2-77.6c-6.3-25.7-11.3-46-12-48.7c-1.7-7.1-3.4-14.2-9.6-13.1
+		c-6.2,1.1-5.3,8.4-4.4,15.7c0.3,2.7,2.8,23.3,5.8,49.6c2.9,25,6.4,55,9.1,79.3c2.3,19.6,4.1,35.6,4.8,42.1
+		c2.5,23.1,15.4,22.4,22.2,21.2s19.1-5.1,13.4-27.7C371.3,571.4,367.4,556,362.7,536.9z"/><path d="M402.2,523.7c-9.9-22.3-22.1-50-32.4-73.1c-10.8-24.3-19.3-43.6-20.4-46c-2.9-6.7-5.9-13.4-11.8-11.3
+		c-5.9,2.2-3.8,9.2-1.6,16.2c0.8,2.6,6.8,22.7,14.4,48.1c7.2,24.2,15.9,53.2,22.8,76.6c5.6,18.8,10.1,34,11.9,40.3
+		c6.5,22.3,19.1,19.4,25.6,17s18-8.4,8.4-29.5C416.5,555.9,410.1,541.5,402.2,523.7z"/><path d="M438.8,503.6c-13.6-20.3-30.5-45.4-44.6-66.3c-14.9-22.1-26.6-39.7-28.1-42c-4-6.1-8.1-12.2-13.5-9.1
+		c-5.4,3.2-2.1,9.7,1.2,16.2c1.2,2.4,10.7,21.2,22.6,45c11.3,22.6,24.9,49.6,35.8,71.5c8.7,17.5,15.8,31.6,18.6,37.4
+		c10.2,20.9,22.2,15.8,28.2,12.3s16.2-11.4,3.1-30.6C458.4,532.8,449.6,519.8,438.8,503.6z"/><path d="M471.2,477.5c-16.9-17.6-37.9-39.3-55.4-57.6c-18.6-19.3-33.2-34.6-35.1-36.6c-5.1-5.3-10.1-10.6-14.9-6.6
+		c-4.8,4-0.4,9.9,4,15.8c1.7,2.2,14.2,19.1,30.2,40.6c15.1,20.3,33.1,44.6,47.6,64.2c11.6,15.6,20.9,28.3,24.8,33.5
+		c13.7,18.7,24.6,11.7,29.9,7.3c5.3-4.5,14-14-2.2-30.6C495.6,502.8,484.7,491.5,471.2,477.5z"/><path d="M532.3,470.5c-5.2-3.8-17.8-12.9-33.4-24.3c-19.7-14.3-44.2-32.2-64.6-47.1c-21.7-15.9-38.9-28.4-41-30
+		c-5.9-4.4-11.8-8.7-15.8-3.9s1.3,9.8,6.7,14.8c2,1.8,17.4,16.4,36.9,34.8c18.4,17.4,40.3,38.1,58,54.9
+		c14.1,13.3,25.4,24.1,30.1,28.6c16.8,16.1,26.2,7.3,30.7,2C544.2,495,551.1,484.1,532.3,470.5z"/><path d="M557.5,428.6c-5.8-2.8-19.7-9.6-37-18c-21.9-10.7-49-24-71.8-35.2c-24.2-11.9-43.3-21.3-45.8-22.5
+		c-6.6-3.3-13.1-6.5-16.3-1.1s3,9.5,9.2,13.5c2.3,1.5,20.1,13.2,42.5,28c21.1,13.9,46.4,30.6,66.7,44c16.1,10.6,29,19.2,34.4,22.8
+		c19.3,12.9,27.1,2.6,30.6-3.4C573.5,450.6,578.4,438.7,557.5,428.6z"/><path d="M25.1,324.5c6.7-0.5,23.4-1.7,43.8-3.1c24.6-1.7,54.8-3.7,79.6-5.4c25.6-1.7,45.6-3.1,48.2-3.2c7.3-0.5,14.6-0.9,14.6-7.2
+		s-7.4-6.7-14.7-7.1c-2.6-0.1-22.7-1.3-48.3-2.8c-24.9-1.5-55-3.3-79.7-4.7c-20.4-1.2-37.1-2.3-43.8-2.7
+		C1.6,286.8,0,299.6,0.1,306.5C0.2,313.4,1.9,326.2,25.1,324.5z"/><path d="M33.7,372.8c6.4-1.6,22.1-5.6,41.5-10.3c23.8-5.9,53.2-13.2,77.6-19.2c25.4-6.3,45.4-11.2,48-11.8
+		c7.1-1.7,14.2-3.4,13.1-9.6c-1.1-6.2-8.4-5.3-15.7-4.4c-2.7,0.3-23.1,2.7-49.1,5.7c-24.9,2.9-54.9,6.3-79.3,9.1
+		c-19.8,2.3-36,4.1-42.5,4.8c-23.1,2.5-22.4,15.4-21.2,22.2C7.3,366.2,11.2,378.5,33.7,372.8z"/><path d="M88.6,401.7c22.5-10,50.1-22.2,73.1-32.4c23.9-10.6,42.8-18.9,45.3-20c6.7-2.9,13.4-5.9,11.3-11.8
+		c-2.2-5.9-9.2-3.8-16.2-1.6c-2.6,0.8-22.3,6.7-47.4,14.2c-24.1,7.2-53.1,15.8-76.6,22.8c-19.1,5.7-34.6,10.3-41,12.1
+		c-22.3,6.5-19.4,19.1-17,25.6s8.4,18,29.5,8.4C55.6,416.3,70.4,409.8,88.6,401.7z"/><path d="M108.7,438c20.4-13.7,45.5-30.6,66.3-44.6c21.7-14.6,38.9-26.1,41.1-27.5c6.1-4,12.2-8.1,9.1-13.5
+		c-3.2-5.4-9.7-2.1-16.2,1.2c-2.4,1.2-20.8,10.5-44.2,22.2c-22.5,11.3-49.5,24.8-71.5,35.8c-17.8,8.9-32.3,16.1-38.2,19
+		c-20.9,10.2-15.8,22.2-12.3,28.2s11.4,16.2,30.6,3.1C78.8,458.2,92.2,449.1,108.7,438z"/><path d="M134.8,470.3c17.7-17,39.5-38,57.6-55.4c18.9-18.2,33.8-32.4,35.7-34.3c5.3-5.1,10.6-10.1,6.6-14.9c-4-4.8-9.9-0.4-15.8,4
+		c-2.2,1.6-18.7,13.9-39.7,29.5c-20.2,15-44.5,33-64.2,47.6c-16,11.9-29,21.5-34.3,25.4C62,485.9,69,496.8,73.4,502.1
+		c4.5,5.3,14,14,30.6-2.2C108.8,495.4,120.4,484.1,134.8,470.3z"/><path d="M294.9,413.2c0.8-7.3,1.7-14.6-4.5-15.6c-6.2-1.1-7.9,6.1-9.5,13.2c-0.6,2.6-5.4,22.8-11.5,48.4
+		c-5.8,24.5-12.8,53.9-18.5,77.7c-4.6,19.3-8.4,34.9-9.9,41.3c-5.5,22.6,6.8,26.4,13.6,27.5c6.8,1.2,19.8,1.7,22.1-21.4
+		c0.6-6.5,2.3-22.5,4.5-42.2c2.6-24.4,5.8-54.4,8.5-79.4C292.4,436.5,294.6,415.9,294.9,413.2z"/><path d="M213.2,433.1c15.5-21.2,27.7-37.9,29.3-40c4.4-5.9,8.7-11.8,3.9-15.8s-9.8,1.3-14.8,6.7c-1.8,2-16,17-34,36
+		c-17.2,18.2-38,40.2-54.9,58c-13.7,14.5-24.8,26.2-29.4,31c-16.1,16.8-7.3,26.2-2,30.7c5.3,4.4,16.2,11.3,29.8-7.5
+		c3.9-5.3,13.3-18.4,25-34.5C180.5,477.8,198.3,453.4,213.2,433.1z"/><path d="M236.7,447.4c11.6-23.6,20.7-42.2,21.9-44.6c3.3-6.6,6.5-13.1,1.1-16.3c-5.5-3.1-9.5,3-13.5,9.2
+		c-1.5,2.3-12.8,19.5-27.2,41.4c-13.8,21-30.5,46.3-44,66.7c-10.9,16.6-19.9,30-23.5,35.5c-12.9,19.3-2.6,27.1,3.4,30.6
+		c6,3.4,18,8.4,28-12.5c2.8-5.9,9.9-20.4,18.6-38.2C212.3,497.2,225.6,470,236.7,447.4z"/><path d="M262.5,457.4c7.3-25.3,13.1-45.2,13.9-47.8c2.1-7,4.1-14.1-1.7-16.2c-5.9-2.1-8.8,4.6-11.7,11.3
+		c-1.1,2.5-9.2,21.5-19.7,45.6c-10,23.1-22,50.9-31.8,73.4c-7.9,18.2-14.3,32.9-17,38.9c-9.4,21.3,2.2,27.2,8.6,29.5
+		c6.5,2.3,19.2,5.1,25.5-17.2c1.8-6.3,6.2-21.7,11.7-40.8C247.1,510.6,255.5,481.6,262.5,457.4z"/><path d="M313.9,413.5c-0.5-7.3-0.9-14.6-7.2-14.6s-6.7,7.4-7.1,14.7c-0.1,2.7-1.3,23.4-2.9,49.7c-1.5,25.1-3.3,55.3-4.7,79.8
+		c-1.2,19.8-2.2,35.8-2.6,42.4c-1.5,23.2,11.3,24.8,18.2,24.8s19.7-1.7,18-24.9c-0.5-6.6-1.6-22.6-2.9-42.3
+		c-1.7-24.4-3.7-54.6-5.4-79.7C315.4,437,314.1,416.2,313.9,413.5z"/><path d="M247.9,74.1c5.9,23.8,13.2,53.2,19.2,77.6c6.3,25.4,11.2,45.4,11.8,48c1.7,7.1,3.4,14.2,9.6,13.1c6.2-1.1,5.3-8.4,4.4-15.7
+		c-0.3-2.7-2.7-23.2-5.7-49.3c-2.9-25-6.3-55-9.1-79.3c-2.3-19.8-4.1-35.8-4.8-42.4C270.8,3,257.9,3.7,251.1,4.9
+		c-6.8,1.2-19.2,5.2-13.4,27.7C239.2,39,243.1,54.8,247.9,74.1z"/><path d="M208.7,87.8c10,22.5,22.2,50.2,32.4,73.1c10.6,23.8,18.8,42.5,19.9,45c2.9,6.7,5.9,13.4,11.8,11.3
+		c5.9-2.2,3.8-9.2,1.6-16.2c-0.8-2.6-6.7-22.2-14.2-47.3c-7.2-24-15.8-53.1-22.8-76.6c-5.7-19.2-10.3-34.7-12.1-41
+		c-6.5-22.3-19.1-19.4-25.6-17s-18,8.4-8.4,29.5C194,54.6,200.6,69.5,208.7,87.8z"/><path d="M172.6,108.1c13.7,20.4,30.6,45.6,44.6,66.4c14.5,21.5,25.8,38.5,27.2,40.7c4,6.1,8.1,12.2,13.5,9.1
+		c5.4-3.2,2.1-9.7-1.2-16.2c-1.2-2.4-10.4-20.6-22.1-43.9c-11.3-22.4-24.8-49.5-35.8-71.5c-9-18-16.3-32.5-19.2-38.5
+		c-10.2-20.9-22.2-15.8-28.2-12.3s-16.2,11.4-3.1,30.6C152.2,77.7,161.4,91.3,172.6,108.1z"/><path d="M140.6,134.3c17.1,17.8,38.1,39.6,55.4,57.6c17.9,18.6,31.9,33.2,33.7,35.2c5.1,5.3,10.1,10.6,14.9,6.6s0.4-9.9-4-15.8
+		c-1.6-2.1-13.7-18.4-29.2-39.2c-15-20.1-33-44.3-47.7-64.1c-12-16.2-21.8-29.5-25.7-34.8c-13.7-18.7-24.6-11.7-29.9-7.3
+		c-5.3,4.5-14,14,2.2,30.6C115.1,107.8,126.5,119.7,140.6,134.3z"/><path d="M78.2,139.9c5.4,3.9,18.8,13.6,35.3,25.6c19.9,14.5,44.4,32.3,64.6,47.1c20.8,15.2,37.1,27.1,39.2,28.7
+		c5.9,4.4,11.8,8.7,15.8,3.9s-1.3-9.8-6.7-14.8c-1.9-1.8-16.6-15.7-35.4-33.4c-18.1-17.2-40.1-38-58-54.9
+		c-14.7-14-26.7-25.3-31.6-30c-16.8-16.1-26.2-7.3-30.7-2C66.3,115.4,59.4,126.3,78.2,139.9z"/><path d="M53,181.8c6.1,2.9,21,10.2,39.2,19.2c22.2,10.8,49.3,24.2,71.8,35.2c23.1,11.3,41.2,20.2,43.5,21.4
+		c6.6,3.3,13.1,6.5,16.3,1.1c3.1-5.5-3-9.5-9.2-13.5c-2.2-1.4-19.1-12.5-40.6-26.7c-20.9-13.7-46.1-30.4-66.7-44
+		c-17-11.2-30.8-20.4-36.3-24.1c-19.3-12.9-27.1-2.6-30.6,3.4C37,159.8,32.1,171.7,53,181.8z"/><path d="M35.4,227.5c6.5,1.8,22.5,6.4,42.1,12.1c23.8,6.8,52.8,15.3,76.8,22.1c24.7,7.1,44,12.7,46.5,13.5c7,2.1,14.1,4.1,16.2-1.7
+		c2.1-5.9-4.6-8.8-11.3-11.7c-2.4-1-20.9-9-44.5-19.2c-22.9-9.9-50.7-21.9-73.4-31.8c-18.7-8.1-33.9-14.7-40.1-17.4
+		c-21.3-9.4-27.2,2.2-29.5,8.6S13,221.2,35.4,227.5z"/><path d="M26,275.5c6.7,0.7,23.3,2.4,43.7,4.6c24.6,2.6,54.6,5.8,79.4,8.5c25.5,2.8,45.5,4.9,48.1,5.2c7.3,0.8,14.6,1.7,15.6-4.5
+		c1.1-6.2-6.1-7.9-13.2-9.5c-2.6-0.6-22.1-5.2-47.1-11.2c-24.3-5.8-53.7-12.8-77.7-18.5c-19.8-4.7-36.1-8.6-42.6-10.2
+		c-22.6-5.5-26.4,6.8-27.5,13.6C3.4,260.3,2.9,273.2,26,275.5z"/><path d="M504.3,171.9c-20.3,13.6-45.4,30.6-66.3,44.6c-22,14.7-39.3,26.3-41.5,27.8c-6.1,4-12.2,8.1-9.1,13.5
+		c3.2,5.4,9.7,2.1,16.2-1.2c2.4-1.2,21-10.6,44.7-22.5c22.6-11.3,49.6-24.9,71.5-35.8c17.6-8.8,31.8-15.9,37.7-18.8
+		c20.9-10.2,15.8-22.2,12.3-28.2s-11.4-16.2-30.6-3.1C533.9,152,520.6,160.9,504.3,171.9z"/><path d="M478,139.6c-17.6,17-39.4,38-57.6,55.4c-19,18.3-34,32.7-36,34.6c-5.3,5.1-10.6,10.1-6.6,14.9c4,4.8,9.9,0.4,15.8-4
+		c2.2-1.6,18.9-14.1,40.1-29.8c20.2-15,44.5-33.1,64.2-47.6c15.9-11.7,28.7-21.2,34-25.1c18.7-13.7,11.7-24.6,7.3-29.9
+		c-4.5-5.3-14-14-30.6,2.2C503.8,114.8,492.3,125.9,478,139.6z"/><path d="M322.2,212.6c6.2,1.1,7.9-6.1,9.5-13.2c0.6-2.6,5.4-22.8,11.5-48.4c5.8-24.4,12.8-53.9,18.5-77.7
+		c4.6-19.3,8.4-34.9,9.9-41.3c5.5-22.6-6.8-26.4-13.6-27.5c-6.8-1.2-19.8-1.7-22.1,21.4c-0.6,6.6-2.3,22.6-4.5,42.3
+		c-2.6,24.4-5.8,54.4-8.5,79.4c-2.8,26.2-5.1,46.8-5.3,49.4C316.8,204.3,316,211.5,322.2,212.6z"/><path d="M399.6,176.9c-15.5,21.3-27.8,38.1-29.4,40.3c-4.4,5.9-8.7,11.8-3.9,15.8s9.8-1.3,14.8-6.7c1.8-2,16.1-17.1,34.2-36.3
+		c17.3-18.3,38.1-40.3,54.9-58c13.6-14.3,24.6-26,29.1-30.7c16.1-16.8,7.3-26.2,2-30.7c-5.3-4.4-16.2-11.3-29.8,7.5
+		c-3.8,5.3-13.2,18.3-24.9,34.2C432.3,132.1,414.5,156.6,399.6,176.9z"/><path d="M375.9,162.6c-11.6,23.7-20.8,42.3-22,44.7c-3.3,6.6-6.5,13.1-1.1,16.3c5.5,3.1,9.5-3,13.5-9.2
+		c1.5-2.3,12.9-19.6,27.4-41.6c13.9-21,30.5-46.3,44-66.8c10.9-16.5,19.7-29.8,23.3-35.3c12.9-19.3,2.6-27.1-3.4-30.6
+		c-6-3.4-18-8.4-28,12.5c-2.8,5.9-9.9,20.3-18.6,38C400.3,112.9,387,140,375.9,162.6z"/><path d="M350.1,152.8c-7.3,25.3-13.1,45.3-13.9,47.8c-2.1,7-4.1,14.1,1.7,16.2c5.9,2.1,8.8-4.6,11.7-11.3
+		c1.1-2.5,9.3-21.5,19.8-45.8c10-23.1,22-50.9,31.8-73.4c7.9-18.1,14.2-32.8,16.9-38.8c9.4-21.3-2.2-27.2-8.6-29.5
+		c-6.5-2.3-19.2-5.1-25.5,17.3c-1.8,6.3-6.2,21.7-11.7,40.8C365.5,99.6,357.1,128.6,350.1,152.8z"/><path d="M305.1,211.3c6.3,0,6.7-7.4,7.1-14.7c0.1-2.7,1.3-23.4,2.9-49.7c1.5-25.1,3.3-55.3,4.7-79.8c1.2-19.8,2.2-35.8,2.6-42.4
+		C323.9,1.5,311.1-0.1,304.2,0c-6.9,0-19.7,1.7-18,24.9c0.5,6.6,1.6,22.7,3,42.5c1.7,24.4,3.7,54.6,5.4,79.7
+		c1.8,26.3,3.2,47,3.3,49.6C298.4,204,298.8,211.3,305.1,211.3z"/><path d="M290.5,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S287.4,229.1,290.5,229.1z"/><path d="M320,392.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S316.9,392.3,320,392.3z"/><path d="M276.5,232.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C270.9,230.4,273.4,232.9,276.5,232.9z"
+		/><path d="M333.9,388.5c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S330.8,388.5,333.9,388.5z"/><path d="M263.4,239.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C257.8,236.6,260.3,239.1,263.4,239.1z"
+		/><path d="M347,382.4c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S343.8,382.4,347,382.4z"/><path d="M251.6,247.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C246,244.9,248.5,247.5,251.6,247.5z"/><path d="M358.7,374.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C353.1,371.5,355.6,374.1,358.7,374.1z"
+		/><path d="M241.4,257.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C235.8,255.2,238.3,257.8,241.4,257.8z"
+		/><path d="M368.9,363.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.3,361.3,365.8,363.8,368.9,363.8z"
+		/><path d="M233.1,269.6c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S230,269.6,233.1,269.6z"/><path d="M377.1,352c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C371.5,349.4,374,352,377.1,352z"/><path d="M227.1,282.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C221.4,280.2,224,282.8,227.1,282.8z"/><path d="M223.4,296.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C217.7,294.2,220.3,296.8,223.4,296.8z"
+		/><path d="M222.2,311.2c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S219.1,311.2,222.2,311.2z"/><path d="M224.6,325.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S221.5,325.5,224.6,325.5z"/><path d="M228.4,339.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S225.2,339.5,228.4,339.5z"/><path d="M234.6,352.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C228.9,350,231.4,352.6,234.6,352.6z"/><path d="M377.8,269.1c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S374.7,269.1,377.8,269.1z"/><path d="M242.9,364.4c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C237.3,361.9,239.8,364.4,242.9,364.4z"
+		/><path d="M369.5,257.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.9,254.7,366.4,257.3,369.5,257.3z"
+		/><path d="M253.2,374.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C247.5,372.1,250.1,374.6,253.2,374.6z"
+		/><path d="M359.3,247.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S356.1,247.1,359.3,247.1z"/><path d="M265.1,382.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S262,382.8,265.1,382.8z"/><path d="M347.4,238.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7C341.7,236.3,344.2,238.9,347.4,238.9z"/><path d="M278.2,388.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C272.6,386.4,275.1,388.9,278.2,388.9z"
+		/><path d="M334.3,232.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S331.2,232.8,334.3,232.8z"/><path d="M292.2,392.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C286.6,390,289.1,392.6,292.2,392.6z"/><path d="M320.3,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C314.7,226.6,317.2,229.1,320.3,229.1z"
+		/><path d="M306.3,393.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C300.6,391.2,303.2,393.8,306.3,393.8z"
+		/><path d="M305.4,227.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C299.8,225.4,302.3,227.9,305.4,227.9z"
+		/></g></svg><span class="word">cocoon</span></div>
+      <div class="topbar-divider"></div>
+      <div class="topbar-title">Valenta / Peer Wedding · Casa Duende</div>
+    </div>
+    <div class="topbar-meta">Open Items to Close</div>
+  </div>
+  <div class="items-body">
+    <div class="glance-note">Tracked as of <strong>September 18</strong>, grouped by who the next action sits with. Items marked <strong>Done</strong> have been closed out; everything else still needs an answer before or during the day.</div>
+    <div class="items-cols">
+      <div class="items-col">
+        <div>
+          <div class="items-group-head">Awaiting Cocoon / Internal</div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill progress">In Progress</span></div>
+            <div class="item-text"><strong>Mirror + back bedrooms — confirm it's actually done.</strong> Eduard confirmed the couple has both Master Bedrooms (rear of the 2nd floor) for getting ready, and agreed to have the Casa Manager move a full-length mirror into one. No confirmation has gone back to the couple that this has happened.</div>
+          </div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill pending">Pending</span></div>
+            <div class="item-text"><strong>Music / DJ set times still missing from the ROS.</strong> The couple's three friend-DJs aren't given call or set times in Scott's Run of Show. Equipment is resolved — the DJs will use Casa Duende's in-house sound system, no outside gear — but the schedule itself still needs confirming before Saturday.</div>
+          </div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill done">Done</span></div>
+            <div class="item-text"><strong>Waterfall turn-on time — resolved.</strong> Eduard confirmed (Sept 18) the waterfall must be ready to go before check-in — added to the Cleaning &amp; Prep team's 10:30 AM pre-check-in checklist alongside rooftop shades, fridge, and general tidiness.</div>
+          </div>
+        </div>
+      </div>
+      <div class="items-col">
+        <div>
+          <div class="items-group-head">Awaiting Client / Vendor Info</div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill pending">Pending</span></div>
+            <div class="item-text"><strong>Final caterer &amp; delivery schedule.</strong> The couple is self-sourcing food from restaurants they love rather than using a caterer — no vendor names or delivery/setup windows have been shared for the "kitchen curtained off, final food prep" step at 5:00 PM.</div>
+          </div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill pending">Pending</span></div>
+            <div class="item-text"><strong>Bar / serving staff — never confirmed booked.</strong> Luciana quoted a staffing vendor (captain, 2 bartenders, kitchen staff, 4 servers — Ultra Events &amp; Staffing, $5,405) back in January; neither ticket shows the couple actually booking them or anyone else.</div>
+          </div>
+          <div class="item-row">
+            <div class="item-status"><span class="pill pending">Pending</span></div>
+            <div class="item-text"><strong>Event Supplies &amp; Decor list.</strong> Requested in Luciana's Feb 12 checklist email and never came back in either thread.</div>
+          </div>
+        </div>
+        <div class="flag-box">
+          <div class="fb-head">⚑ Flags to confirm</div>
+          <div class="fb-text">
+            <strong>Photographer identified only as "Austin."</strong> A Proof-of-Insurance COI came in separately from Yaron — worth matching a last name/company to it and to the 4:00 PM photo call.<br><br>
+            <strong>"Our COI covers the two vendors."</strong> Kyle said this on Sept 17 when declining to have every vendor fix their own COI — confirm exactly which two vendors that refers to, so nothing is left uncovered.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="plan-footer">
+    <div class="plan-footer-left">cocoon flex spaces · cocoonflexspaces.com</div>
+    <div class="plan-footer-center">Valenta / Peer Wedding · Casa Duende</div>
+    <div class="plan-footer-right">Open Items</div>
+  </div>
+</div>
+
+<div class="page day-page" id="event-day">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="wordmark"><svg class="logomark" viewBox="0 0 573.1 610.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g><path d="M362.7,536.9c-5.9-23.7-13.1-53.1-19.2-77.6c-6.3-25.7-11.3-46-12-48.7c-1.7-7.1-3.4-14.2-9.6-13.1
+		c-6.2,1.1-5.3,8.4-4.4,15.7c0.3,2.7,2.8,23.3,5.8,49.6c2.9,25,6.4,55,9.1,79.3c2.3,19.6,4.1,35.6,4.8,42.1
+		c2.5,23.1,15.4,22.4,22.2,21.2s19.1-5.1,13.4-27.7C371.3,571.4,367.4,556,362.7,536.9z"/><path d="M402.2,523.7c-9.9-22.3-22.1-50-32.4-73.1c-10.8-24.3-19.3-43.6-20.4-46c-2.9-6.7-5.9-13.4-11.8-11.3
+		c-5.9,2.2-3.8,9.2-1.6,16.2c0.8,2.6,6.8,22.7,14.4,48.1c7.2,24.2,15.9,53.2,22.8,76.6c5.6,18.8,10.1,34,11.9,40.3
+		c6.5,22.3,19.1,19.4,25.6,17s18-8.4,8.4-29.5C416.5,555.9,410.1,541.5,402.2,523.7z"/><path d="M438.8,503.6c-13.6-20.3-30.5-45.4-44.6-66.3c-14.9-22.1-26.6-39.7-28.1-42c-4-6.1-8.1-12.2-13.5-9.1
+		c-5.4,3.2-2.1,9.7,1.2,16.2c1.2,2.4,10.7,21.2,22.6,45c11.3,22.6,24.9,49.6,35.8,71.5c8.7,17.5,15.8,31.6,18.6,37.4
+		c10.2,20.9,22.2,15.8,28.2,12.3s16.2-11.4,3.1-30.6C458.4,532.8,449.6,519.8,438.8,503.6z"/><path d="M471.2,477.5c-16.9-17.6-37.9-39.3-55.4-57.6c-18.6-19.3-33.2-34.6-35.1-36.6c-5.1-5.3-10.1-10.6-14.9-6.6
+		c-4.8,4-0.4,9.9,4,15.8c1.7,2.2,14.2,19.1,30.2,40.6c15.1,20.3,33.1,44.6,47.6,64.2c11.6,15.6,20.9,28.3,24.8,33.5
+		c13.7,18.7,24.6,11.7,29.9,7.3c5.3-4.5,14-14-2.2-30.6C495.6,502.8,484.7,491.5,471.2,477.5z"/><path d="M532.3,470.5c-5.2-3.8-17.8-12.9-33.4-24.3c-19.7-14.3-44.2-32.2-64.6-47.1c-21.7-15.9-38.9-28.4-41-30
+		c-5.9-4.4-11.8-8.7-15.8-3.9s1.3,9.8,6.7,14.8c2,1.8,17.4,16.4,36.9,34.8c18.4,17.4,40.3,38.1,58,54.9
+		c14.1,13.3,25.4,24.1,30.1,28.6c16.8,16.1,26.2,7.3,30.7,2C544.2,495,551.1,484.1,532.3,470.5z"/><path d="M557.5,428.6c-5.8-2.8-19.7-9.6-37-18c-21.9-10.7-49-24-71.8-35.2c-24.2-11.9-43.3-21.3-45.8-22.5
+		c-6.6-3.3-13.1-6.5-16.3-1.1s3,9.5,9.2,13.5c2.3,1.5,20.1,13.2,42.5,28c21.1,13.9,46.4,30.6,66.7,44c16.1,10.6,29,19.2,34.4,22.8
+		c19.3,12.9,27.1,2.6,30.6-3.4C573.5,450.6,578.4,438.7,557.5,428.6z"/><path d="M25.1,324.5c6.7-0.5,23.4-1.7,43.8-3.1c24.6-1.7,54.8-3.7,79.6-5.4c25.6-1.7,45.6-3.1,48.2-3.2c7.3-0.5,14.6-0.9,14.6-7.2
+		s-7.4-6.7-14.7-7.1c-2.6-0.1-22.7-1.3-48.3-2.8c-24.9-1.5-55-3.3-79.7-4.7c-20.4-1.2-37.1-2.3-43.8-2.7
+		C1.6,286.8,0,299.6,0.1,306.5C0.2,313.4,1.9,326.2,25.1,324.5z"/><path d="M33.7,372.8c6.4-1.6,22.1-5.6,41.5-10.3c23.8-5.9,53.2-13.2,77.6-19.2c25.4-6.3,45.4-11.2,48-11.8
+		c7.1-1.7,14.2-3.4,13.1-9.6c-1.1-6.2-8.4-5.3-15.7-4.4c-2.7,0.3-23.1,2.7-49.1,5.7c-24.9,2.9-54.9,6.3-79.3,9.1
+		c-19.8,2.3-36,4.1-42.5,4.8c-23.1,2.5-22.4,15.4-21.2,22.2C7.3,366.2,11.2,378.5,33.7,372.8z"/><path d="M88.6,401.7c22.5-10,50.1-22.2,73.1-32.4c23.9-10.6,42.8-18.9,45.3-20c6.7-2.9,13.4-5.9,11.3-11.8
+		c-2.2-5.9-9.2-3.8-16.2-1.6c-2.6,0.8-22.3,6.7-47.4,14.2c-24.1,7.2-53.1,15.8-76.6,22.8c-19.1,5.7-34.6,10.3-41,12.1
+		c-22.3,6.5-19.4,19.1-17,25.6s8.4,18,29.5,8.4C55.6,416.3,70.4,409.8,88.6,401.7z"/><path d="M108.7,438c20.4-13.7,45.5-30.6,66.3-44.6c21.7-14.6,38.9-26.1,41.1-27.5c6.1-4,12.2-8.1,9.1-13.5
+		c-3.2-5.4-9.7-2.1-16.2,1.2c-2.4,1.2-20.8,10.5-44.2,22.2c-22.5,11.3-49.5,24.8-71.5,35.8c-17.8,8.9-32.3,16.1-38.2,19
+		c-20.9,10.2-15.8,22.2-12.3,28.2s11.4,16.2,30.6,3.1C78.8,458.2,92.2,449.1,108.7,438z"/><path d="M134.8,470.3c17.7-17,39.5-38,57.6-55.4c18.9-18.2,33.8-32.4,35.7-34.3c5.3-5.1,10.6-10.1,6.6-14.9c-4-4.8-9.9-0.4-15.8,4
+		c-2.2,1.6-18.7,13.9-39.7,29.5c-20.2,15-44.5,33-64.2,47.6c-16,11.9-29,21.5-34.3,25.4C62,485.9,69,496.8,73.4,502.1
+		c4.5,5.3,14,14,30.6-2.2C108.8,495.4,120.4,484.1,134.8,470.3z"/><path d="M294.9,413.2c0.8-7.3,1.7-14.6-4.5-15.6c-6.2-1.1-7.9,6.1-9.5,13.2c-0.6,2.6-5.4,22.8-11.5,48.4
+		c-5.8,24.5-12.8,53.9-18.5,77.7c-4.6,19.3-8.4,34.9-9.9,41.3c-5.5,22.6,6.8,26.4,13.6,27.5c6.8,1.2,19.8,1.7,22.1-21.4
+		c0.6-6.5,2.3-22.5,4.5-42.2c2.6-24.4,5.8-54.4,8.5-79.4C292.4,436.5,294.6,415.9,294.9,413.2z"/><path d="M213.2,433.1c15.5-21.2,27.7-37.9,29.3-40c4.4-5.9,8.7-11.8,3.9-15.8s-9.8,1.3-14.8,6.7c-1.8,2-16,17-34,36
+		c-17.2,18.2-38,40.2-54.9,58c-13.7,14.5-24.8,26.2-29.4,31c-16.1,16.8-7.3,26.2-2,30.7c5.3,4.4,16.2,11.3,29.8-7.5
+		c3.9-5.3,13.3-18.4,25-34.5C180.5,477.8,198.3,453.4,213.2,433.1z"/><path d="M236.7,447.4c11.6-23.6,20.7-42.2,21.9-44.6c3.3-6.6,6.5-13.1,1.1-16.3c-5.5-3.1-9.5,3-13.5,9.2
+		c-1.5,2.3-12.8,19.5-27.2,41.4c-13.8,21-30.5,46.3-44,66.7c-10.9,16.6-19.9,30-23.5,35.5c-12.9,19.3-2.6,27.1,3.4,30.6
+		c6,3.4,18,8.4,28-12.5c2.8-5.9,9.9-20.4,18.6-38.2C212.3,497.2,225.6,470,236.7,447.4z"/><path d="M262.5,457.4c7.3-25.3,13.1-45.2,13.9-47.8c2.1-7,4.1-14.1-1.7-16.2c-5.9-2.1-8.8,4.6-11.7,11.3
+		c-1.1,2.5-9.2,21.5-19.7,45.6c-10,23.1-22,50.9-31.8,73.4c-7.9,18.2-14.3,32.9-17,38.9c-9.4,21.3,2.2,27.2,8.6,29.5
+		c6.5,2.3,19.2,5.1,25.5-17.2c1.8-6.3,6.2-21.7,11.7-40.8C247.1,510.6,255.5,481.6,262.5,457.4z"/><path d="M313.9,413.5c-0.5-7.3-0.9-14.6-7.2-14.6s-6.7,7.4-7.1,14.7c-0.1,2.7-1.3,23.4-2.9,49.7c-1.5,25.1-3.3,55.3-4.7,79.8
+		c-1.2,19.8-2.2,35.8-2.6,42.4c-1.5,23.2,11.3,24.8,18.2,24.8s19.7-1.7,18-24.9c-0.5-6.6-1.6-22.6-2.9-42.3
+		c-1.7-24.4-3.7-54.6-5.4-79.7C315.4,437,314.1,416.2,313.9,413.5z"/><path d="M247.9,74.1c5.9,23.8,13.2,53.2,19.2,77.6c6.3,25.4,11.2,45.4,11.8,48c1.7,7.1,3.4,14.2,9.6,13.1c6.2-1.1,5.3-8.4,4.4-15.7
+		c-0.3-2.7-2.7-23.2-5.7-49.3c-2.9-25-6.3-55-9.1-79.3c-2.3-19.8-4.1-35.8-4.8-42.4C270.8,3,257.9,3.7,251.1,4.9
+		c-6.8,1.2-19.2,5.2-13.4,27.7C239.2,39,243.1,54.8,247.9,74.1z"/><path d="M208.7,87.8c10,22.5,22.2,50.2,32.4,73.1c10.6,23.8,18.8,42.5,19.9,45c2.9,6.7,5.9,13.4,11.8,11.3
+		c5.9-2.2,3.8-9.2,1.6-16.2c-0.8-2.6-6.7-22.2-14.2-47.3c-7.2-24-15.8-53.1-22.8-76.6c-5.7-19.2-10.3-34.7-12.1-41
+		c-6.5-22.3-19.1-19.4-25.6-17s-18,8.4-8.4,29.5C194,54.6,200.6,69.5,208.7,87.8z"/><path d="M172.6,108.1c13.7,20.4,30.6,45.6,44.6,66.4c14.5,21.5,25.8,38.5,27.2,40.7c4,6.1,8.1,12.2,13.5,9.1
+		c5.4-3.2,2.1-9.7-1.2-16.2c-1.2-2.4-10.4-20.6-22.1-43.9c-11.3-22.4-24.8-49.5-35.8-71.5c-9-18-16.3-32.5-19.2-38.5
+		c-10.2-20.9-22.2-15.8-28.2-12.3s-16.2,11.4-3.1,30.6C152.2,77.7,161.4,91.3,172.6,108.1z"/><path d="M140.6,134.3c17.1,17.8,38.1,39.6,55.4,57.6c17.9,18.6,31.9,33.2,33.7,35.2c5.1,5.3,10.1,10.6,14.9,6.6s0.4-9.9-4-15.8
+		c-1.6-2.1-13.7-18.4-29.2-39.2c-15-20.1-33-44.3-47.7-64.1c-12-16.2-21.8-29.5-25.7-34.8c-13.7-18.7-24.6-11.7-29.9-7.3
+		c-5.3,4.5-14,14,2.2,30.6C115.1,107.8,126.5,119.7,140.6,134.3z"/><path d="M78.2,139.9c5.4,3.9,18.8,13.6,35.3,25.6c19.9,14.5,44.4,32.3,64.6,47.1c20.8,15.2,37.1,27.1,39.2,28.7
+		c5.9,4.4,11.8,8.7,15.8,3.9s-1.3-9.8-6.7-14.8c-1.9-1.8-16.6-15.7-35.4-33.4c-18.1-17.2-40.1-38-58-54.9
+		c-14.7-14-26.7-25.3-31.6-30c-16.8-16.1-26.2-7.3-30.7-2C66.3,115.4,59.4,126.3,78.2,139.9z"/><path d="M53,181.8c6.1,2.9,21,10.2,39.2,19.2c22.2,10.8,49.3,24.2,71.8,35.2c23.1,11.3,41.2,20.2,43.5,21.4
+		c6.6,3.3,13.1,6.5,16.3,1.1c3.1-5.5-3-9.5-9.2-13.5c-2.2-1.4-19.1-12.5-40.6-26.7c-20.9-13.7-46.1-30.4-66.7-44
+		c-17-11.2-30.8-20.4-36.3-24.1c-19.3-12.9-27.1-2.6-30.6,3.4C37,159.8,32.1,171.7,53,181.8z"/><path d="M35.4,227.5c6.5,1.8,22.5,6.4,42.1,12.1c23.8,6.8,52.8,15.3,76.8,22.1c24.7,7.1,44,12.7,46.5,13.5c7,2.1,14.1,4.1,16.2-1.7
+		c2.1-5.9-4.6-8.8-11.3-11.7c-2.4-1-20.9-9-44.5-19.2c-22.9-9.9-50.7-21.9-73.4-31.8c-18.7-8.1-33.9-14.7-40.1-17.4
+		c-21.3-9.4-27.2,2.2-29.5,8.6S13,221.2,35.4,227.5z"/><path d="M26,275.5c6.7,0.7,23.3,2.4,43.7,4.6c24.6,2.6,54.6,5.8,79.4,8.5c25.5,2.8,45.5,4.9,48.1,5.2c7.3,0.8,14.6,1.7,15.6-4.5
+		c1.1-6.2-6.1-7.9-13.2-9.5c-2.6-0.6-22.1-5.2-47.1-11.2c-24.3-5.8-53.7-12.8-77.7-18.5c-19.8-4.7-36.1-8.6-42.6-10.2
+		c-22.6-5.5-26.4,6.8-27.5,13.6C3.4,260.3,2.9,273.2,26,275.5z"/><path d="M504.3,171.9c-20.3,13.6-45.4,30.6-66.3,44.6c-22,14.7-39.3,26.3-41.5,27.8c-6.1,4-12.2,8.1-9.1,13.5
+		c3.2,5.4,9.7,2.1,16.2-1.2c2.4-1.2,21-10.6,44.7-22.5c22.6-11.3,49.6-24.9,71.5-35.8c17.6-8.8,31.8-15.9,37.7-18.8
+		c20.9-10.2,15.8-22.2,12.3-28.2s-11.4-16.2-30.6-3.1C533.9,152,520.6,160.9,504.3,171.9z"/><path d="M478,139.6c-17.6,17-39.4,38-57.6,55.4c-19,18.3-34,32.7-36,34.6c-5.3,5.1-10.6,10.1-6.6,14.9c4,4.8,9.9,0.4,15.8-4
+		c2.2-1.6,18.9-14.1,40.1-29.8c20.2-15,44.5-33.1,64.2-47.6c15.9-11.7,28.7-21.2,34-25.1c18.7-13.7,11.7-24.6,7.3-29.9
+		c-4.5-5.3-14-14-30.6,2.2C503.8,114.8,492.3,125.9,478,139.6z"/><path d="M322.2,212.6c6.2,1.1,7.9-6.1,9.5-13.2c0.6-2.6,5.4-22.8,11.5-48.4c5.8-24.4,12.8-53.9,18.5-77.7
+		c4.6-19.3,8.4-34.9,9.9-41.3c5.5-22.6-6.8-26.4-13.6-27.5c-6.8-1.2-19.8-1.7-22.1,21.4c-0.6,6.6-2.3,22.6-4.5,42.3
+		c-2.6,24.4-5.8,54.4-8.5,79.4c-2.8,26.2-5.1,46.8-5.3,49.4C316.8,204.3,316,211.5,322.2,212.6z"/><path d="M399.6,176.9c-15.5,21.3-27.8,38.1-29.4,40.3c-4.4,5.9-8.7,11.8-3.9,15.8s9.8-1.3,14.8-6.7c1.8-2,16.1-17.1,34.2-36.3
+		c17.3-18.3,38.1-40.3,54.9-58c13.6-14.3,24.6-26,29.1-30.7c16.1-16.8,7.3-26.2,2-30.7c-5.3-4.4-16.2-11.3-29.8,7.5
+		c-3.8,5.3-13.2,18.3-24.9,34.2C432.3,132.1,414.5,156.6,399.6,176.9z"/><path d="M375.9,162.6c-11.6,23.7-20.8,42.3-22,44.7c-3.3,6.6-6.5,13.1-1.1,16.3c5.5,3.1,9.5-3,13.5-9.2
+		c1.5-2.3,12.9-19.6,27.4-41.6c13.9-21,30.5-46.3,44-66.8c10.9-16.5,19.7-29.8,23.3-35.3c12.9-19.3,2.6-27.1-3.4-30.6
+		c-6-3.4-18-8.4-28,12.5c-2.8,5.9-9.9,20.3-18.6,38C400.3,112.9,387,140,375.9,162.6z"/><path d="M350.1,152.8c-7.3,25.3-13.1,45.3-13.9,47.8c-2.1,7-4.1,14.1,1.7,16.2c5.9,2.1,8.8-4.6,11.7-11.3
+		c1.1-2.5,9.3-21.5,19.8-45.8c10-23.1,22-50.9,31.8-73.4c7.9-18.1,14.2-32.8,16.9-38.8c9.4-21.3-2.2-27.2-8.6-29.5
+		c-6.5-2.3-19.2-5.1-25.5,17.3c-1.8,6.3-6.2,21.7-11.7,40.8C365.5,99.6,357.1,128.6,350.1,152.8z"/><path d="M305.1,211.3c6.3,0,6.7-7.4,7.1-14.7c0.1-2.7,1.3-23.4,2.9-49.7c1.5-25.1,3.3-55.3,4.7-79.8c1.2-19.8,2.2-35.8,2.6-42.4
+		C323.9,1.5,311.1-0.1,304.2,0c-6.9,0-19.7,1.7-18,24.9c0.5,6.6,1.6,22.7,3,42.5c1.7,24.4,3.7,54.6,5.4,79.7
+		c1.8,26.3,3.2,47,3.3,49.6C298.4,204,298.8,211.3,305.1,211.3z"/><path d="M290.5,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S287.4,229.1,290.5,229.1z"/><path d="M320,392.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S316.9,392.3,320,392.3z"/><path d="M276.5,232.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C270.9,230.4,273.4,232.9,276.5,232.9z"
+		/><path d="M333.9,388.5c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S330.8,388.5,333.9,388.5z"/><path d="M263.4,239.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C257.8,236.6,260.3,239.1,263.4,239.1z"
+		/><path d="M347,382.4c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S343.8,382.4,347,382.4z"/><path d="M251.6,247.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C246,244.9,248.5,247.5,251.6,247.5z"/><path d="M358.7,374.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C353.1,371.5,355.6,374.1,358.7,374.1z"
+		/><path d="M241.4,257.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C235.8,255.2,238.3,257.8,241.4,257.8z"
+		/><path d="M368.9,363.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.3,361.3,365.8,363.8,368.9,363.8z"
+		/><path d="M233.1,269.6c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S230,269.6,233.1,269.6z"/><path d="M377.1,352c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C371.5,349.4,374,352,377.1,352z"/><path d="M227.1,282.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C221.4,280.2,224,282.8,227.1,282.8z"/><path d="M223.4,296.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C217.7,294.2,220.3,296.8,223.4,296.8z"
+		/><path d="M222.2,311.2c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S219.1,311.2,222.2,311.2z"/><path d="M224.6,325.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S221.5,325.5,224.6,325.5z"/><path d="M228.4,339.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S225.2,339.5,228.4,339.5z"/><path d="M234.6,352.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C228.9,350,231.4,352.6,234.6,352.6z"/><path d="M377.8,269.1c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S374.7,269.1,377.8,269.1z"/><path d="M242.9,364.4c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C237.3,361.9,239.8,364.4,242.9,364.4z"
+		/><path d="M369.5,257.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.9,254.7,366.4,257.3,369.5,257.3z"
+		/><path d="M253.2,374.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C247.5,372.1,250.1,374.6,253.2,374.6z"
+		/><path d="M359.3,247.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S356.1,247.1,359.3,247.1z"/><path d="M265.1,382.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S262,382.8,265.1,382.8z"/><path d="M347.4,238.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7C341.7,236.3,344.2,238.9,347.4,238.9z"/><path d="M278.2,388.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C272.6,386.4,275.1,388.9,278.2,388.9z"
+		/><path d="M334.3,232.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S331.2,232.8,334.3,232.8z"/><path d="M292.2,392.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C286.6,390,289.1,392.6,292.2,392.6z"/><path d="M320.3,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C314.7,226.6,317.2,229.1,320.3,229.1z"
+		/><path d="M306.3,393.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C300.6,391.2,303.2,393.8,306.3,393.8z"
+		/><path d="M305.4,227.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C299.8,225.4,302.3,227.9,305.4,227.9z"
+		/></g></svg><span class="word">cocoon</span></div>
+      <div class="topbar-divider"></div>
+      <div class="topbar-title">Valenta / Peer Wedding · Casa Duende</div>
+    </div>
+    <div class="topbar-meta">Event Day</div>
+  </div>
+  <div class="day-header">
+    <div class="dh-left">
+      <div class="dh-badge">19</div>
+      <div>
+        <div class="dh-title">Saturday, September 19 — Wedding Day</div>
+        <div class="dh-sub">Ceremony 5:45pm, rooftop · Reception &amp; dinner downstairs · Speeches 9:00pm</div>
+      </div>
+    </div>
+    <div class="dh-right">
+      <div class="dh-access">Booking Access</div>
+      <div class="dh-access-val">2:30 PM – 1:30 AM</div>
+    </div>
+  </div>
+  <div class="day-body">
+    <table class="ros-table">
+      <thead><tr><th>Time</th><th>Track</th><th>Action</th><th>Owner / Contact</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rt-time">12:00 PM</td>
+          <td class="rt-track"><span class="track-pill cocoon">Cocoon</span></td>
+          <td class="rt-item">Cleaning &amp; Prep team arrives for pre-check-in prep.<span class="rt-note">Rooftop shades brought down · Fridge cleaned and ready · No clutter or personal items left anywhere in the space, including on top of or beside the fridge · Waterfall ready to go · Client to use on-site equipment (no outside gear to load in)</span></td>
+          <td class="rt-owner">Cleaning &amp; Prep Team</td>
+        </tr>
+        <tr>
+          <td class="rt-time">1:30 PM</td>
+          <td class="rt-track"><span class="track-pill cocoon">Cocoon</span></td>
+          <td class="rt-item">Casa Manager arrives on site, ahead of load-in.<span class="rt-note">Booking access for the couple's team begins at 2:30 PM.</span></td>
+          <td class="rt-owner">Cassidy Arkins, Casa Manager</td>
+        </tr>
+        <tr>
+          <td class="rt-time">2:30 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Scott, Johnny &amp; styling team arrive, begin load-in and setup.</td>
+          <td class="rt-owner">Scott Frost Design</td>
+        </tr>
+        <tr>
+          <td class="rt-time">4:00 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Kyle &amp; Yaron arrive; photos begin.<span class="rt-note flag">Photographer given only as "Austin" — see Open Items.</span></td>
+          <td class="rt-owner">Austin (Photographer)</td>
+        </tr>
+        <tr class="row-highlight">
+          <td class="rt-time">5:00 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Guests begin arriving — champagne, beer &amp; wine available; kitchen curtained off for final food prep.<span class="rt-note flag">Caterer/vendor and delivery window not on file — see Open Items.</span></td>
+          <td class="rt-owner">TBD</td>
+        </tr>
+        <tr>
+          <td class="rt-time">5:30 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Guests move up to the rooftop for the ceremony.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">5:45 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item"><strong>Ceremony begins</strong>, rooftop.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">6:05–6:15 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Ceremony ends; guests head downstairs to food and a full bar. Kyle &amp; Yaron stay on the roof with family for photos.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">6:30 PM (ish)</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Kyle &amp; Yaron announced into the reception, first dance.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">7:45 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Moms' dance.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">9:00 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Speeches — Eli, Jean &amp; Roy, Christine. Food transitions to dessert.</td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr class="row-highlight">
+          <td class="rt-time">11:00 PM</td>
+          <td class="rt-track"><span class="track-pill couple">Couple's Team</span></td>
+          <td class="rt-item">Guests leave; client load-out — <strong>11:00 PM to 1:30 AM.</strong></td>
+          <td class="rt-owner">—</td>
+        </tr>
+        <tr>
+          <td class="rt-time">1:30 AM</td>
+          <td class="rt-track"><span class="track-pill cocoon">Cocoon</span></td>
+          <td class="rt-item"><strong>Booking / venue access ends.</strong></td>
+          <td class="rt-owner">Cocoon</td>
+        </tr>
+        <tr>
+          <td class="rt-time">1:30–2:30 AM</td>
+          <td class="rt-track"><span class="track-pill cocoon">Cocoon</span></td>
+          <td class="rt-item">Cassidy &amp; Simeon stay on site to run check-out protocols &amp; cleaning.</td>
+          <td class="rt-owner">Cassidy Arkins / Simeon Dillon</td>
+        </tr>
+        <tr>
+          <td class="rt-time">Sun 9:00 AM</td>
+          <td class="rt-track"><span class="track-pill cocoon">Cocoon</span></td>
+          <td class="rt-item">Cleaning &amp; Prep team returns for post-check-out cleanup and prep for Sunday's event.</td>
+          <td class="rt-owner">Cleaning &amp; Prep Team</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="day-footnote"><strong>Note —</strong> Timeline built directly from Scott Frost's Run of Show (emailed Sept 17) plus Cocoon's standard access/close-out coverage. Rows in orange are flagged on the Open Items page and still need a confirmed answer before Saturday.</div>
+
+    <div class="ot-callout">
+      <div>
+        <div class="ot-head">Overtime / Post-Booking Rate</div>
+        <div class="ot-note">Applies to any time outside the 2:30 PM–1:30 AM booking window (early load-in, late pickup, or running past close-out). Combined venue + Casa Manager overtime rate, per the ClickUp booking record.</div>
+      </div>
+      <div class="ot-rate">$1,567.50 / hour</div>
+    </div>
+  </div>
+  <div class="plan-footer">
+    <div class="plan-footer-left">cocoon flex spaces · cocoonflexspaces.com</div>
+    <div class="plan-footer-center">Valenta / Peer Wedding · Casa Duende</div>
+    <div class="plan-footer-right">Event Day</div>
+  </div>
+</div>
+
+<div class="page day-page" id="team">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="wordmark"><svg class="logomark" viewBox="0 0 573.1 610.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g><path d="M362.7,536.9c-5.9-23.7-13.1-53.1-19.2-77.6c-6.3-25.7-11.3-46-12-48.7c-1.7-7.1-3.4-14.2-9.6-13.1
+		c-6.2,1.1-5.3,8.4-4.4,15.7c0.3,2.7,2.8,23.3,5.8,49.6c2.9,25,6.4,55,9.1,79.3c2.3,19.6,4.1,35.6,4.8,42.1
+		c2.5,23.1,15.4,22.4,22.2,21.2s19.1-5.1,13.4-27.7C371.3,571.4,367.4,556,362.7,536.9z"/><path d="M402.2,523.7c-9.9-22.3-22.1-50-32.4-73.1c-10.8-24.3-19.3-43.6-20.4-46c-2.9-6.7-5.9-13.4-11.8-11.3
+		c-5.9,2.2-3.8,9.2-1.6,16.2c0.8,2.6,6.8,22.7,14.4,48.1c7.2,24.2,15.9,53.2,22.8,76.6c5.6,18.8,10.1,34,11.9,40.3
+		c6.5,22.3,19.1,19.4,25.6,17s18-8.4,8.4-29.5C416.5,555.9,410.1,541.5,402.2,523.7z"/><path d="M438.8,503.6c-13.6-20.3-30.5-45.4-44.6-66.3c-14.9-22.1-26.6-39.7-28.1-42c-4-6.1-8.1-12.2-13.5-9.1
+		c-5.4,3.2-2.1,9.7,1.2,16.2c1.2,2.4,10.7,21.2,22.6,45c11.3,22.6,24.9,49.6,35.8,71.5c8.7,17.5,15.8,31.6,18.6,37.4
+		c10.2,20.9,22.2,15.8,28.2,12.3s16.2-11.4,3.1-30.6C458.4,532.8,449.6,519.8,438.8,503.6z"/><path d="M471.2,477.5c-16.9-17.6-37.9-39.3-55.4-57.6c-18.6-19.3-33.2-34.6-35.1-36.6c-5.1-5.3-10.1-10.6-14.9-6.6
+		c-4.8,4-0.4,9.9,4,15.8c1.7,2.2,14.2,19.1,30.2,40.6c15.1,20.3,33.1,44.6,47.6,64.2c11.6,15.6,20.9,28.3,24.8,33.5
+		c13.7,18.7,24.6,11.7,29.9,7.3c5.3-4.5,14-14-2.2-30.6C495.6,502.8,484.7,491.5,471.2,477.5z"/><path d="M532.3,470.5c-5.2-3.8-17.8-12.9-33.4-24.3c-19.7-14.3-44.2-32.2-64.6-47.1c-21.7-15.9-38.9-28.4-41-30
+		c-5.9-4.4-11.8-8.7-15.8-3.9s1.3,9.8,6.7,14.8c2,1.8,17.4,16.4,36.9,34.8c18.4,17.4,40.3,38.1,58,54.9
+		c14.1,13.3,25.4,24.1,30.1,28.6c16.8,16.1,26.2,7.3,30.7,2C544.2,495,551.1,484.1,532.3,470.5z"/><path d="M557.5,428.6c-5.8-2.8-19.7-9.6-37-18c-21.9-10.7-49-24-71.8-35.2c-24.2-11.9-43.3-21.3-45.8-22.5
+		c-6.6-3.3-13.1-6.5-16.3-1.1s3,9.5,9.2,13.5c2.3,1.5,20.1,13.2,42.5,28c21.1,13.9,46.4,30.6,66.7,44c16.1,10.6,29,19.2,34.4,22.8
+		c19.3,12.9,27.1,2.6,30.6-3.4C573.5,450.6,578.4,438.7,557.5,428.6z"/><path d="M25.1,324.5c6.7-0.5,23.4-1.7,43.8-3.1c24.6-1.7,54.8-3.7,79.6-5.4c25.6-1.7,45.6-3.1,48.2-3.2c7.3-0.5,14.6-0.9,14.6-7.2
+		s-7.4-6.7-14.7-7.1c-2.6-0.1-22.7-1.3-48.3-2.8c-24.9-1.5-55-3.3-79.7-4.7c-20.4-1.2-37.1-2.3-43.8-2.7
+		C1.6,286.8,0,299.6,0.1,306.5C0.2,313.4,1.9,326.2,25.1,324.5z"/><path d="M33.7,372.8c6.4-1.6,22.1-5.6,41.5-10.3c23.8-5.9,53.2-13.2,77.6-19.2c25.4-6.3,45.4-11.2,48-11.8
+		c7.1-1.7,14.2-3.4,13.1-9.6c-1.1-6.2-8.4-5.3-15.7-4.4c-2.7,0.3-23.1,2.7-49.1,5.7c-24.9,2.9-54.9,6.3-79.3,9.1
+		c-19.8,2.3-36,4.1-42.5,4.8c-23.1,2.5-22.4,15.4-21.2,22.2C7.3,366.2,11.2,378.5,33.7,372.8z"/><path d="M88.6,401.7c22.5-10,50.1-22.2,73.1-32.4c23.9-10.6,42.8-18.9,45.3-20c6.7-2.9,13.4-5.9,11.3-11.8
+		c-2.2-5.9-9.2-3.8-16.2-1.6c-2.6,0.8-22.3,6.7-47.4,14.2c-24.1,7.2-53.1,15.8-76.6,22.8c-19.1,5.7-34.6,10.3-41,12.1
+		c-22.3,6.5-19.4,19.1-17,25.6s8.4,18,29.5,8.4C55.6,416.3,70.4,409.8,88.6,401.7z"/><path d="M108.7,438c20.4-13.7,45.5-30.6,66.3-44.6c21.7-14.6,38.9-26.1,41.1-27.5c6.1-4,12.2-8.1,9.1-13.5
+		c-3.2-5.4-9.7-2.1-16.2,1.2c-2.4,1.2-20.8,10.5-44.2,22.2c-22.5,11.3-49.5,24.8-71.5,35.8c-17.8,8.9-32.3,16.1-38.2,19
+		c-20.9,10.2-15.8,22.2-12.3,28.2s11.4,16.2,30.6,3.1C78.8,458.2,92.2,449.1,108.7,438z"/><path d="M134.8,470.3c17.7-17,39.5-38,57.6-55.4c18.9-18.2,33.8-32.4,35.7-34.3c5.3-5.1,10.6-10.1,6.6-14.9c-4-4.8-9.9-0.4-15.8,4
+		c-2.2,1.6-18.7,13.9-39.7,29.5c-20.2,15-44.5,33-64.2,47.6c-16,11.9-29,21.5-34.3,25.4C62,485.9,69,496.8,73.4,502.1
+		c4.5,5.3,14,14,30.6-2.2C108.8,495.4,120.4,484.1,134.8,470.3z"/><path d="M294.9,413.2c0.8-7.3,1.7-14.6-4.5-15.6c-6.2-1.1-7.9,6.1-9.5,13.2c-0.6,2.6-5.4,22.8-11.5,48.4
+		c-5.8,24.5-12.8,53.9-18.5,77.7c-4.6,19.3-8.4,34.9-9.9,41.3c-5.5,22.6,6.8,26.4,13.6,27.5c6.8,1.2,19.8,1.7,22.1-21.4
+		c0.6-6.5,2.3-22.5,4.5-42.2c2.6-24.4,5.8-54.4,8.5-79.4C292.4,436.5,294.6,415.9,294.9,413.2z"/><path d="M213.2,433.1c15.5-21.2,27.7-37.9,29.3-40c4.4-5.9,8.7-11.8,3.9-15.8s-9.8,1.3-14.8,6.7c-1.8,2-16,17-34,36
+		c-17.2,18.2-38,40.2-54.9,58c-13.7,14.5-24.8,26.2-29.4,31c-16.1,16.8-7.3,26.2-2,30.7c5.3,4.4,16.2,11.3,29.8-7.5
+		c3.9-5.3,13.3-18.4,25-34.5C180.5,477.8,198.3,453.4,213.2,433.1z"/><path d="M236.7,447.4c11.6-23.6,20.7-42.2,21.9-44.6c3.3-6.6,6.5-13.1,1.1-16.3c-5.5-3.1-9.5,3-13.5,9.2
+		c-1.5,2.3-12.8,19.5-27.2,41.4c-13.8,21-30.5,46.3-44,66.7c-10.9,16.6-19.9,30-23.5,35.5c-12.9,19.3-2.6,27.1,3.4,30.6
+		c6,3.4,18,8.4,28-12.5c2.8-5.9,9.9-20.4,18.6-38.2C212.3,497.2,225.6,470,236.7,447.4z"/><path d="M262.5,457.4c7.3-25.3,13.1-45.2,13.9-47.8c2.1-7,4.1-14.1-1.7-16.2c-5.9-2.1-8.8,4.6-11.7,11.3
+		c-1.1,2.5-9.2,21.5-19.7,45.6c-10,23.1-22,50.9-31.8,73.4c-7.9,18.2-14.3,32.9-17,38.9c-9.4,21.3,2.2,27.2,8.6,29.5
+		c6.5,2.3,19.2,5.1,25.5-17.2c1.8-6.3,6.2-21.7,11.7-40.8C247.1,510.6,255.5,481.6,262.5,457.4z"/><path d="M313.9,413.5c-0.5-7.3-0.9-14.6-7.2-14.6s-6.7,7.4-7.1,14.7c-0.1,2.7-1.3,23.4-2.9,49.7c-1.5,25.1-3.3,55.3-4.7,79.8
+		c-1.2,19.8-2.2,35.8-2.6,42.4c-1.5,23.2,11.3,24.8,18.2,24.8s19.7-1.7,18-24.9c-0.5-6.6-1.6-22.6-2.9-42.3
+		c-1.7-24.4-3.7-54.6-5.4-79.7C315.4,437,314.1,416.2,313.9,413.5z"/><path d="M247.9,74.1c5.9,23.8,13.2,53.2,19.2,77.6c6.3,25.4,11.2,45.4,11.8,48c1.7,7.1,3.4,14.2,9.6,13.1c6.2-1.1,5.3-8.4,4.4-15.7
+		c-0.3-2.7-2.7-23.2-5.7-49.3c-2.9-25-6.3-55-9.1-79.3c-2.3-19.8-4.1-35.8-4.8-42.4C270.8,3,257.9,3.7,251.1,4.9
+		c-6.8,1.2-19.2,5.2-13.4,27.7C239.2,39,243.1,54.8,247.9,74.1z"/><path d="M208.7,87.8c10,22.5,22.2,50.2,32.4,73.1c10.6,23.8,18.8,42.5,19.9,45c2.9,6.7,5.9,13.4,11.8,11.3
+		c5.9-2.2,3.8-9.2,1.6-16.2c-0.8-2.6-6.7-22.2-14.2-47.3c-7.2-24-15.8-53.1-22.8-76.6c-5.7-19.2-10.3-34.7-12.1-41
+		c-6.5-22.3-19.1-19.4-25.6-17s-18,8.4-8.4,29.5C194,54.6,200.6,69.5,208.7,87.8z"/><path d="M172.6,108.1c13.7,20.4,30.6,45.6,44.6,66.4c14.5,21.5,25.8,38.5,27.2,40.7c4,6.1,8.1,12.2,13.5,9.1
+		c5.4-3.2,2.1-9.7-1.2-16.2c-1.2-2.4-10.4-20.6-22.1-43.9c-11.3-22.4-24.8-49.5-35.8-71.5c-9-18-16.3-32.5-19.2-38.5
+		c-10.2-20.9-22.2-15.8-28.2-12.3s-16.2,11.4-3.1,30.6C152.2,77.7,161.4,91.3,172.6,108.1z"/><path d="M140.6,134.3c17.1,17.8,38.1,39.6,55.4,57.6c17.9,18.6,31.9,33.2,33.7,35.2c5.1,5.3,10.1,10.6,14.9,6.6s0.4-9.9-4-15.8
+		c-1.6-2.1-13.7-18.4-29.2-39.2c-15-20.1-33-44.3-47.7-64.1c-12-16.2-21.8-29.5-25.7-34.8c-13.7-18.7-24.6-11.7-29.9-7.3
+		c-5.3,4.5-14,14,2.2,30.6C115.1,107.8,126.5,119.7,140.6,134.3z"/><path d="M78.2,139.9c5.4,3.9,18.8,13.6,35.3,25.6c19.9,14.5,44.4,32.3,64.6,47.1c20.8,15.2,37.1,27.1,39.2,28.7
+		c5.9,4.4,11.8,8.7,15.8,3.9s-1.3-9.8-6.7-14.8c-1.9-1.8-16.6-15.7-35.4-33.4c-18.1-17.2-40.1-38-58-54.9
+		c-14.7-14-26.7-25.3-31.6-30c-16.8-16.1-26.2-7.3-30.7-2C66.3,115.4,59.4,126.3,78.2,139.9z"/><path d="M53,181.8c6.1,2.9,21,10.2,39.2,19.2c22.2,10.8,49.3,24.2,71.8,35.2c23.1,11.3,41.2,20.2,43.5,21.4
+		c6.6,3.3,13.1,6.5,16.3,1.1c3.1-5.5-3-9.5-9.2-13.5c-2.2-1.4-19.1-12.5-40.6-26.7c-20.9-13.7-46.1-30.4-66.7-44
+		c-17-11.2-30.8-20.4-36.3-24.1c-19.3-12.9-27.1-2.6-30.6,3.4C37,159.8,32.1,171.7,53,181.8z"/><path d="M35.4,227.5c6.5,1.8,22.5,6.4,42.1,12.1c23.8,6.8,52.8,15.3,76.8,22.1c24.7,7.1,44,12.7,46.5,13.5c7,2.1,14.1,4.1,16.2-1.7
+		c2.1-5.9-4.6-8.8-11.3-11.7c-2.4-1-20.9-9-44.5-19.2c-22.9-9.9-50.7-21.9-73.4-31.8c-18.7-8.1-33.9-14.7-40.1-17.4
+		c-21.3-9.4-27.2,2.2-29.5,8.6S13,221.2,35.4,227.5z"/><path d="M26,275.5c6.7,0.7,23.3,2.4,43.7,4.6c24.6,2.6,54.6,5.8,79.4,8.5c25.5,2.8,45.5,4.9,48.1,5.2c7.3,0.8,14.6,1.7,15.6-4.5
+		c1.1-6.2-6.1-7.9-13.2-9.5c-2.6-0.6-22.1-5.2-47.1-11.2c-24.3-5.8-53.7-12.8-77.7-18.5c-19.8-4.7-36.1-8.6-42.6-10.2
+		c-22.6-5.5-26.4,6.8-27.5,13.6C3.4,260.3,2.9,273.2,26,275.5z"/><path d="M504.3,171.9c-20.3,13.6-45.4,30.6-66.3,44.6c-22,14.7-39.3,26.3-41.5,27.8c-6.1,4-12.2,8.1-9.1,13.5
+		c3.2,5.4,9.7,2.1,16.2-1.2c2.4-1.2,21-10.6,44.7-22.5c22.6-11.3,49.6-24.9,71.5-35.8c17.6-8.8,31.8-15.9,37.7-18.8
+		c20.9-10.2,15.8-22.2,12.3-28.2s-11.4-16.2-30.6-3.1C533.9,152,520.6,160.9,504.3,171.9z"/><path d="M478,139.6c-17.6,17-39.4,38-57.6,55.4c-19,18.3-34,32.7-36,34.6c-5.3,5.1-10.6,10.1-6.6,14.9c4,4.8,9.9,0.4,15.8-4
+		c2.2-1.6,18.9-14.1,40.1-29.8c20.2-15,44.5-33.1,64.2-47.6c15.9-11.7,28.7-21.2,34-25.1c18.7-13.7,11.7-24.6,7.3-29.9
+		c-4.5-5.3-14-14-30.6,2.2C503.8,114.8,492.3,125.9,478,139.6z"/><path d="M322.2,212.6c6.2,1.1,7.9-6.1,9.5-13.2c0.6-2.6,5.4-22.8,11.5-48.4c5.8-24.4,12.8-53.9,18.5-77.7
+		c4.6-19.3,8.4-34.9,9.9-41.3c5.5-22.6-6.8-26.4-13.6-27.5c-6.8-1.2-19.8-1.7-22.1,21.4c-0.6,6.6-2.3,22.6-4.5,42.3
+		c-2.6,24.4-5.8,54.4-8.5,79.4c-2.8,26.2-5.1,46.8-5.3,49.4C316.8,204.3,316,211.5,322.2,212.6z"/><path d="M399.6,176.9c-15.5,21.3-27.8,38.1-29.4,40.3c-4.4,5.9-8.7,11.8-3.9,15.8s9.8-1.3,14.8-6.7c1.8-2,16.1-17.1,34.2-36.3
+		c17.3-18.3,38.1-40.3,54.9-58c13.6-14.3,24.6-26,29.1-30.7c16.1-16.8,7.3-26.2,2-30.7c-5.3-4.4-16.2-11.3-29.8,7.5
+		c-3.8,5.3-13.2,18.3-24.9,34.2C432.3,132.1,414.5,156.6,399.6,176.9z"/><path d="M375.9,162.6c-11.6,23.7-20.8,42.3-22,44.7c-3.3,6.6-6.5,13.1-1.1,16.3c5.5,3.1,9.5-3,13.5-9.2
+		c1.5-2.3,12.9-19.6,27.4-41.6c13.9-21,30.5-46.3,44-66.8c10.9-16.5,19.7-29.8,23.3-35.3c12.9-19.3,2.6-27.1-3.4-30.6
+		c-6-3.4-18-8.4-28,12.5c-2.8,5.9-9.9,20.3-18.6,38C400.3,112.9,387,140,375.9,162.6z"/><path d="M350.1,152.8c-7.3,25.3-13.1,45.3-13.9,47.8c-2.1,7-4.1,14.1,1.7,16.2c5.9,2.1,8.8-4.6,11.7-11.3
+		c1.1-2.5,9.3-21.5,19.8-45.8c10-23.1,22-50.9,31.8-73.4c7.9-18.1,14.2-32.8,16.9-38.8c9.4-21.3-2.2-27.2-8.6-29.5
+		c-6.5-2.3-19.2-5.1-25.5,17.3c-1.8,6.3-6.2,21.7-11.7,40.8C365.5,99.6,357.1,128.6,350.1,152.8z"/><path d="M305.1,211.3c6.3,0,6.7-7.4,7.1-14.7c0.1-2.7,1.3-23.4,2.9-49.7c1.5-25.1,3.3-55.3,4.7-79.8c1.2-19.8,2.2-35.8,2.6-42.4
+		C323.9,1.5,311.1-0.1,304.2,0c-6.9,0-19.7,1.7-18,24.9c0.5,6.6,1.6,22.7,3,42.5c1.7,24.4,3.7,54.6,5.4,79.7
+		c1.8,26.3,3.2,47,3.3,49.6C298.4,204,298.8,211.3,305.1,211.3z"/><path d="M290.5,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S287.4,229.1,290.5,229.1z"/><path d="M320,392.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S316.9,392.3,320,392.3z"/><path d="M276.5,232.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C270.9,230.4,273.4,232.9,276.5,232.9z"
+		/><path d="M333.9,388.5c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S330.8,388.5,333.9,388.5z"/><path d="M263.4,239.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C257.8,236.6,260.3,239.1,263.4,239.1z"
+		/><path d="M347,382.4c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S343.8,382.4,347,382.4z"/><path d="M251.6,247.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C246,244.9,248.5,247.5,251.6,247.5z"/><path d="M358.7,374.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C353.1,371.5,355.6,374.1,358.7,374.1z"
+		/><path d="M241.4,257.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C235.8,255.2,238.3,257.8,241.4,257.8z"
+		/><path d="M368.9,363.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.3,361.3,365.8,363.8,368.9,363.8z"
+		/><path d="M233.1,269.6c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7S230,269.6,233.1,269.6z"/><path d="M377.1,352c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C371.5,349.4,374,352,377.1,352z"/><path d="M227.1,282.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C221.4,280.2,224,282.8,227.1,282.8z"/><path d="M223.4,296.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C217.7,294.2,220.3,296.8,223.4,296.8z"
+		/><path d="M222.2,311.2c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S219.1,311.2,222.2,311.2z"/><path d="M224.6,325.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S221.5,325.5,224.6,325.5z"/><path d="M228.4,339.5c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S225.2,339.5,228.4,339.5z"/><path d="M234.6,352.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C228.9,350,231.4,352.6,234.6,352.6z"/><path d="M377.8,269.1c3.1,0,5.7-2.5,5.7-5.7s-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S374.7,269.1,377.8,269.1z"/><path d="M242.9,364.4c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C237.3,361.9,239.8,364.4,242.9,364.4z"
+		/><path d="M369.5,257.3c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C363.9,254.7,366.4,257.3,369.5,257.3z"
+		/><path d="M253.2,374.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C247.5,372.1,250.1,374.6,253.2,374.6z"
+		/><path d="M359.3,247.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S356.1,247.1,359.3,247.1z"/><path d="M265.1,382.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S262,382.8,265.1,382.8z"/><path d="M347.4,238.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7s-5.7,2.5-5.7,5.7C341.7,236.3,344.2,238.9,347.4,238.9z"/><path d="M278.2,388.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C272.6,386.4,275.1,388.9,278.2,388.9z"
+		/><path d="M334.3,232.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7S331.2,232.8,334.3,232.8z"/><path d="M292.2,392.6c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C286.6,390,289.1,392.6,292.2,392.6z"/><path d="M320.3,229.1c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C314.7,226.6,317.2,229.1,320.3,229.1z"
+		/><path d="M306.3,393.8c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C300.6,391.2,303.2,393.8,306.3,393.8z"
+		/><path d="M305.4,227.9c3.1,0,5.7-2.5,5.7-5.7c0-3.1-2.5-5.7-5.7-5.7c-3.1,0-5.7,2.5-5.7,5.7C299.8,225.4,302.3,227.9,305.4,227.9z"
+		/></g></svg><span class="word">cocoon</span></div>
+      <div class="topbar-divider"></div>
+      <div class="topbar-title">Valenta / Peer Wedding · Casa Duende</div>
+    </div>
+    <div class="topbar-meta">Team &amp; Key Contacts</div>
+  </div>
+  <div class="team-body">
+    <div class="glance-note">All scope, cost and contractual matters run through Eduard in writing — anything discussed on site gets a same-day written recap before it's treated as settled.</div>
+    <div class="flag-box teal">
+      <div class="fb-head">Welcome Email &amp; Text — Cassidy sends to:</div>
+      <div class="fb-text">
+        <strong>Kyle Valenta</strong> — kvalenta21@gmail.com · <a class="tel-link" href="tel:+16072612761" style="color:inherit;">607-261-2761</a> — Groom, primary on-site point of contact<br>
+        <strong>Yaron Peer</strong> — peeryaron@gmail.com · <a class="tel-link" href="tel:+16464095298" style="color:inherit;">646-409-5298</a> — Groom<br><br>
+        <strong>Also worth a heads-up text:</strong> Scott Frost (planning lead) arrives first at 2:30 PM for load-in, ahead of the couple at 4:00 PM — a short coordination text to him ahead of the standard Welcome Text will help him find his way in.
+      </div>
+    </div>
+    <div class="team-cols">
+      <div class="team-col">
+        <div class="team-col-head">Cocoon Flex Spaces</div>
+        <div class="person-row">
+          <div class="p-name-row"><span class="p-name">Eduard Monteagudo</span><a class="p-phone tel-link" href="tel:+19173983938">917-398-3938</a></div>
+          <div class="p-role">Founder / Operations</div>
+          <div class="p-note">Primary contact for logistics, paperwork &amp; billing</div>
+        </div>
+        <div class="person-row">
+          <div class="p-name-row"><span class="p-name">Cassidy Arkins</span><span class="p-phone tbd">Number TBD</span></div>
+          <div class="p-role">Lead Casa Manager, day-of</div>
+        </div>
+        <div class="person-row">
+          <div class="p-name-row"><span class="p-name">Simeon Dillon</span><span class="p-phone tbd">Number TBD</span></div>
+          <div class="p-role">Casa Manager (second)</div>
+        </div>
+      </div>
+      <div class="team-col">
+        <div class="team-col-head">The Couple</div>
+        <div class="person-row">
+          <div class="p-name-row"><span class="p-name">Kyle Valenta</span><a class="p-phone tel-link" href="tel:+16072612761">607-261-2761</a></div>
+          <div class="p-role">Groom · on-site point of contact</div>
+          <div class="p-note">kvalenta21@gmail.com</div>
+        </div>
+        <div class="person-row">
+          <div class="p-name-row"><span class="p-name">Yaron Peer, LCSW</span><a class="p-phone tel-link" href="tel:+16464095298">646-409-5298</a></div>
+          <div class="p-role">Groom</div>
+          <div class="p-note">peeryaron@gmail.com</div>
+        </div>
+      </div>
+      <div class="team-col">
+        <div class="team-col-head">Planning Team &amp; Vendors</div>
+        <div class="vendor-row"><div><div class="v-name">Scott Frost</div><div class="v-role">Stylist / Designer — wedding planning lead, scottfrostdesign.com</div></div><span class="v-phone tbd">On file — TBD</span></div>
+        <div class="vendor-row"><div><div class="v-name">Johnny Frost</div><div class="v-role">Planning team — johnny@scottfrostdesign.com</div></div><span class="v-phone tbd">On file — TBD</span></div>
+        <div class="vendor-row"><div><div class="v-name">Austin</div><div class="v-role">Photographer<span class="flag" style="display:block;margin-top:2px;">Last name / company TBD — see Open Items.</span></div></div><span class="v-phone tbd">TBD</span></div>
+        <div class="vendor-row"><div><div class="v-name">DJs (×3)</div><div class="v-role">Friends of the couple — using Casa Duende's in-house sound system<span class="flag" style="display:block;margin-top:2px;">Call/set times TBD — see Open Items.</span></div></div><span class="v-phone tbd">Names TBD</span></div>
+        <div class="vendor-row"><div><div class="v-name">Catering</div><div class="v-role">Self-sourced from NYC restaurants — no vendor or delivery schedule on file<span class="flag" style="display:block;margin-top:2px;">See Open Items.</span></div></div><span class="v-phone tbd">TBD</span></div>
+        <div class="vendor-row"><div><div class="v-name">Bar / serving staff</div><div class="v-role">Quoted via Ultra Events &amp; Staffing (Jan 28) — booking never confirmed</div></div><span class="v-phone tbd">TBD</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="plan-footer">
+    <div class="plan-footer-left">cocoon flex spaces · cocoonflexspaces.com</div>
+    <div class="plan-footer-center">Valenta / Peer Wedding · Casa Duende</div>
+    <div class="plan-footer-right">Team &amp; Contacts</div>
+  </div>
+</div>
 </body>
 </html>
